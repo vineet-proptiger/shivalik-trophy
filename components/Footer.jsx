@@ -1,0 +1,57 @@
+'use client'
+import React from 'react'
+import Link from 'next/link'
+
+const F_SANS = 'var(--font-sans), Open Sans, sans-serif'
+const F_JOST = 'var(--font-jost), Montserrat, sans-serif'
+
+const Footer = () => (
+  <footer style={{ background: 'var(--color-dark)', color: '#fff' }}>
+
+    <div style={{ maxWidth: '860px', margin: '0 auto', padding: '56px 24px 32px', textAlign: 'center' }}>
+      <h2 style={{ fontSize: '24px', fontWeight: '800', fontFamily: F_JOST, marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '0.05em' }} data-aos="fade-in">
+        Trophy by Shivalik
+      </h2>
+      <p style={{ fontSize: '13px', color: 'var(--color-gold)', fontFamily: F_JOST, fontWeight: '700', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '12px' }}>
+        Premium Office Spaces — GIFT City, Ahmedabad
+      </p>
+      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '24px' }}>
+        <span style={{ width: '36px', height: '2.5px', background: 'linear-gradient(90deg, #E92228, #FF4D52)', borderRadius: '2px' }} />
+      </div>
+      <p style={{ fontSize: '15px', color: '#bbb', fontFamily: F_SANS, lineHeight: 1.8, marginBottom: '32px' }}
+        data-aos="fade-in" data-aos-delay="100">
+        Trophy by Shivalik is a landmark commercial development in GIFT City, Ahmedabad — India&apos;s first operational smart city and a rapidly emerging global financial hub. Located in the SEZ zone, the project offers premium office spaces designed for modern businesses seeking long-term growth and global prestige. Developed by Shivalik Group — a trusted name in Ahmedabad real estate with a legacy of delivering high-quality residential and commercial projects.
+      </p>
+      <div style={{ borderTop: '1px solid #333', marginBottom: '24px' }} />
+      <p style={{ fontSize: '14px', color: '#aaa', fontFamily: F_SANS, marginBottom: '8px' }} data-aos="fade-in" data-aos-delay="200">
+        GIFT City, Gandhinagar — Ahmedabad, Gujarat, India
+      </p>
+      <p style={{ fontSize: '13px', color: '#777', fontFamily: F_SANS, marginBottom: '24px' }}>
+        RERA Registration details to be updated
+      </p>
+    </div>
+
+    <div style={{ borderTop: '1px solid #222', padding: '16px 24px', display: 'flex', justifyContent: 'space-between',
+      alignItems: 'center', flexWrap: 'wrap', gap: '8px', maxWidth: '1200px', margin: '0 auto' }}>
+      <p style={{ fontSize: '13px', color: '#888', fontFamily: F_SANS }}>
+        &copy; 2026 Trophy by Shivalik. All rights reserved.
+      </p>
+      <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+        <Link href="#" style={{ fontSize: '13px', color: 'var(--color-gold)', fontFamily: F_SANS }}>
+          Disclaimer &amp; Privacy Policy
+        </Link>
+        <Link href="#" style={{ fontSize: '13px', color: 'var(--color-gold)', fontFamily: F_SANS }}>
+          RERA
+        </Link>
+      </div>
+    </div>
+
+    <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '12px 24px 20px', textAlign: 'center' }}>
+      <p style={{ fontSize: '10.5px', color: '#555', fontFamily: F_SANS, lineHeight: 1.7 }}>
+        <strong style={{ color: '#777' }}>Disclaimer:</strong> The information depicted herein, including master plans, floor plans, furniture layout, fittings, illustrations, specifications, designs, dimensions, rendered views, colours, amenities and facilities etc., are subject to change without notification as may be required by the relevant authorities or the Developer&apos;s architect. This advertisement is an invitation to offer and shall not be construed as an offer or contract. * Prices subject to change without notice. All taxes extra as applicable.
+      </p>
+    </div>
+  </footer>
+)
+
+export default Footer
