@@ -121,7 +121,7 @@ const Location = () => {
 
                   {/* Accordion content */}
                   {openIndex === i && (
-                    <div style={{ padding: '4px 20px 16px 20px', background: 'rgba(233,34,40,0.02)' }}>
+                    <div style={{ padding: '4px 20px 16px 20px', background: 'rgba(3,147,148,0.02)' }}>
                       {cat.items.map((item, j) => (
                         <div key={j} style={{
                           display: 'flex', alignItems: 'flex-start', gap: '10px',
@@ -156,7 +156,7 @@ const Location = () => {
               height: '100%', minHeight: '420px',
               position: 'relative',
             }}>
-              {/* Red top accent */}
+              {/* Brand top accent */}
               <div style={{
                 position: 'absolute', top: 0, left: 0, right: 0, height: '3px',
                 background: 'linear-gradient(90deg, var(--color-gold), var(--color-gold-light))', zIndex: 10,

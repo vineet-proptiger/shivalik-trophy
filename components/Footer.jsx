@@ -10,7 +10,7 @@ const Footer = () => (
 
     <div style={{ maxWidth: '860px', margin: '0 auto', padding: '56px 24px 32px', textAlign: 'center' }}>
       <h2 style={{ fontSize: '24px', fontWeight: '800', fontFamily: F_JOST, marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '0.05em' }} data-aos="fade-in">
-        Trophy by Shivalik
+        Shivalik Trophy
       </h2>
       <p style={{ fontSize: '13px', color: 'var(--color-gold)', fontFamily: F_JOST, fontWeight: '700', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '12px' }}>
         Premium Office Spaces — GIFT City, Ahmedabad
@@ -20,7 +20,7 @@ const Footer = () => (
       </div>
       <p style={{ fontSize: '15px', color: '#bbb', fontFamily: F_SANS, lineHeight: 1.8, marginBottom: '32px' }}
         data-aos="fade-in" data-aos-delay="100">
-        Trophy by Shivalik is a landmark commercial development in GIFT City, Ahmedabad — India&apos;s first operational smart city and a rapidly emerging global financial hub. Located in the SEZ zone, the project offers premium office spaces designed for modern businesses seeking long-term growth and global prestige. Developed by Shivalik Group — a trusted name in Ahmedabad real estate with a legacy of delivering high-quality residential and commercial projects.
+        Shivalik Trophy is a landmark commercial development in GIFT City, Ahmedabad — India&apos;s first operational smart city and a rapidly emerging global financial hub. Located in the SEZ zone, the project offers premium office spaces designed for modern businesses seeking long-term growth and global prestige. Developed by Shivalik Group — a trusted name in Ahmedabad real estate with a legacy of delivering high-quality residential and commercial projects.
       </p>
       <div style={{ borderTop: '1px solid #333', marginBottom: '24px' }} />
       <p style={{ fontSize: '14px', color: '#aaa', fontFamily: F_SANS, marginBottom: '8px' }} data-aos="fade-in" data-aos-delay="200">
@@ -36,21 +36,19 @@ const Footer = () => (
       alignItems: 'center', flexWrap: 'wrap', gap: '8px', maxWidth: '1200px', margin: '0 auto'
     }}>
       <p style={{ fontSize: '13px', color: '#888', fontFamily: F_SANS }}>
-        &copy; 2026 Trophy by Shivalik. All rights reserved.
+        &copy; 2026  Shivalik Trophy. All rights reserved.
       </p>
       <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-        <Link href="#" style={{ fontSize: '13px', color: 'var(--color-gold)', fontFamily: F_SANS }}>
+        <Link href="/privacy-policy" style={{ fontSize: '13px', color: 'var(--color-gold)', fontFamily: F_SANS }}>
           Disclaimer &amp; Privacy Policy
         </Link>
-        <Link href="#" style={{ fontSize: '13px', color: 'var(--color-gold)', fontFamily: F_SANS }}>
-          RERA
-        </Link>
+
       </div>
     </div>
 
     <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '12px 24px 20px', textAlign: 'center' }}>
       <p style={{ fontSize: '10.5px', color: '#555', fontFamily: F_SANS, lineHeight: 1.7 }}>
-        <strong style={{ color: '#777' }}>Disclaimer:</strong> The information depicted herein, including master plans, floor plans, furniture layout, fittings, illustrations, specifications, designs, dimensions, rendered views, colours, amenities and facilities etc., are subject to change without notification as may be required by the relevant authorities or the Developer&apos;s architect. This advertisement is an invitation to offer and shall not be construed as an offer or contract. * Prices subject to change without notice. All taxes extra as applicable.
+        <strong style={{ color: '#777' }}>Disclaimer:</strong> This is not the official website of the developer. The information depicted herein, including master plans, floor plans, furniture layout, fittings, illustrations, specifications, designs, dimensions, rendered views, colours, amenities and facilities etc., are subject to change without notification as may be required by the relevant authorities or the Developer&apos;s architect. This advertisement is an invitation to offer and shall not be construed as an offer or contract. * Prices subject to change without notice. All taxes extra as applicable.
       </p>
     </div>
   </footer>

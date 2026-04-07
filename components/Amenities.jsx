@@ -36,7 +36,7 @@ const Amenities = ({ setIsOpen }) => {
           </h2>
           <div style={{ width: '60px', height: '3px', background: 'linear-gradient(90deg, var(--color-gold), var(--color-gold-light))', borderRadius: '2px', margin: '8px auto 12px' }} />
           <p style={{ fontFamily: F_SANS, fontSize: '14px', color: '#6b7280', margin: 0 }}>
-            Trophy by Shivalik is designed to offer a future-ready work environment supported by global infrastructure
+            Shivalik Trophy is designed to offer a future-ready work environment supported by global infrastructure
           </p>
         </div>
 
@@ -79,7 +79,7 @@ const Amenities = ({ setIsOpen }) => {
               <div style={{
                 position: 'absolute', bottom: 0, left: 0, right: 0,
                 background: hovered === idx
-                  ? 'linear-gradient(to top, rgba(5, 150, 105, 0.90) 0%, transparent 80%)'
+                  ? 'linear-gradient(to top, rgba(3, 147, 148, 0.90) 0%, transparent 80%)'
                   : 'linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 70%)',
                 padding: '32px 16px 14px',
                 transition: 'background 0.32s ease',

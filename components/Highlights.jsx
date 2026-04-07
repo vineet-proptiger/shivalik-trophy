@@ -133,7 +133,7 @@ const Highlights = ({ setIsOpen }) => (
           color: '#111827', margin: 0, letterSpacing: '-0.01em',
         }}>
           Key Highlights:{' '}
-          <span style={{ color: 'var(--color-gold)' }}>Why Trophy by Shivalik?</span>
+          <span style={{ color: 'var(--color-gold)' }}>Why Shivalik Trophy?</span>
         </h2>
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
           <span style={{

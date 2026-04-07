@@ -38,7 +38,7 @@ const Hero = ({ setIsOpen }) => {
             >
               {slides.map((src, idx) => (
                 <div key={idx} style={{ width: `${100 / slides.length}%`, flexShrink: 0, position: 'relative' }}>
-                  <Image src={src} alt={`Trophy by Shivalik ${idx + 1}`} fill className="object-cover"
+                  <Image src={src} alt={`Shivalik Trophy ${idx + 1}`} fill className="object-cover"
                     priority={idx === 0} sizes="(max-width: 1024px) 100vw, 62vw" />
                 </div>
               ))}
@@ -81,7 +81,7 @@ const Hero = ({ setIsOpen }) => {
               color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px'
             }}>
               <span style={{ display: 'inline-block', width: '24px', height: '1.5px', background: 'var(--color-gold)' }} />
-              Work at India’s Global Financial Hub
+              Booking Window Opens
               <span style={{ display: 'inline-block', width: '24px', height: '1.5px', background: 'var(--color-gold)' }} />
             </p>
           </div>
@@ -90,7 +90,7 @@ const Hero = ({ setIsOpen }) => {
 
             {/* ── Project Identity ── */}
             <div style={{ textAlign: 'center', paddingBottom: '10px', borderBottom: '1px solid #f0f0f0' }}>
-              {/* Red accent */}
+              {/* Brand accent */}
               <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '6px' }}>
                 <span style={{
                   display: 'inline-block', width: '36px', height: '3px',
@@ -103,7 +103,7 @@ const Hero = ({ setIsOpen }) => {
                 textTransform: 'uppercase', letterSpacing: '0.02em'
               }}
                 data-aos="fade-up" data-aos-delay="200">
-                Trophy by Shivalik | Premium Office Spaces
+                Shivalik Trophy
               </h1>
               <p style={{
                 fontFamily: F_SANS, fontSize: '13px', color: '#6b7280', margin: 0,
@@ -137,7 +137,7 @@ const Hero = ({ setIsOpen }) => {
               ))}
             </div>
 
-            {/* ── Green Highlights Box ── */}
+            {/* ── Teal-Cyan Highlights Box ── */}
             <div style={{
               background: 'linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-dark) 100%)',
               borderRadius: '12px',

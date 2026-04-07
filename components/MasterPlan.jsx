@@ -7,9 +7,9 @@ const F_JOST = 'var(--font-jost), Montserrat, sans-serif'
 const F_SANS = 'var(--font-sans), Open Sans, sans-serif'
 
 const plans = [
-  { label: 'Site Master Plan',        img: masterplanImages.masterPlan },
-  { label: 'Typical Office Floor Plan', img: masterplanImages.floorPlan  },
-  { label: 'Premium Suite Layout',    img: masterplanImages.floorPlan  },
+  { label: 'Site Master Plan', img: masterplanImages.masterPlan },
+  { label: 'Typical Office Floor Plan', img: masterplanImages.floorPlan },
+  { label: 'Premium Suite Layout', img: masterplanImages.floorPlan },
 ]
 
 const MasterPlan = ({ setIsOpen }) => {
@@ -63,12 +63,16 @@ const MasterPlan = ({ setIsOpen }) => {
                   position: 'absolute', top: 0, left: 0, right: 0, height: '3px',
                   background: 'linear-gradient(90deg, var(--color-gold), var(--color-gold-light))',
                 }} />
-                <p style={{ fontFamily: F_JOST, fontWeight: '700', fontSize: '13px',
-                  color: '#fff', margin: 0, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+                <p style={{
+                  fontFamily: F_JOST, fontWeight: '700', fontSize: '13px',
+                  color: '#fff', margin: 0, letterSpacing: '0.06em', textTransform: 'uppercase'
+                }}>
                   Select Floor Plan
                 </p>
-                <p style={{ fontFamily: F_SANS, fontSize: '11px',
-                  color: 'rgba(255,255,255,0.5)', margin: '3px 0 0' }}>
+                <p style={{
+                  fontFamily: F_SANS, fontSize: '11px',
+                  color: 'rgba(255,255,255,0.5)', margin: '3px 0 0'
+                }}>
                   Click to preview
                 </p>
               </div>
@@ -109,7 +113,7 @@ const MasterPlan = ({ setIsOpen }) => {
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
                     stroke={activePlan === idx ? 'var(--color-gold)' : '#d1d5db'}
                     strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
-                    <polyline points="9 18 15 12 9 6"/>
+                    <polyline points="9 18 15 12 9 6" />
                   </svg>
                 </button>
               ))}
@@ -124,11 +128,13 @@ const MasterPlan = ({ setIsOpen }) => {
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
                     stroke="var(--color-gold)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
                     style={{ flexShrink: 0, marginTop: '1px' }}>
-                    <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/>
-                    <line x1="12" y1="16" x2="12.01" y2="16"/>
+                    <circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" />
+                    <line x1="12" y1="16" x2="12.01" y2="16" />
                   </svg>
-                  <p style={{ fontFamily: F_SANS, fontSize: '11px', color: '#6b7280',
-                    margin: 0, lineHeight: 1.6 }}>
+                  <p style={{
+                    fontFamily: F_SANS, fontSize: '11px', color: '#6b7280',
+                    margin: 0, lineHeight: 1.6
+                  }}>
                     Register to receive detailed floor plans &amp; pricing directly to your inbox.
                   </p>
                 </div>
@@ -144,7 +150,7 @@ const MasterPlan = ({ setIsOpen }) => {
               boxShadow: '0 10px 36px var(--color-shadow-inner)',
               height: '100%', minHeight: '400px',
             }}>
-              {/* Red top accent */}
+              {/* Brand top accent */}
               <div style={{
                 position: 'absolute', top: 0, left: 0, right: 0, height: '3px',
                 background: 'linear-gradient(90deg, var(--color-gold), var(--color-gold-light))', zIndex: 10,
@@ -156,8 +162,10 @@ const MasterPlan = ({ setIsOpen }) => {
                 background: 'var(--color-gold)', opacity: 0.9, backdropFilter: 'blur(6px)',
                 borderRadius: '8px', padding: '5px 12px',
               }}>
-                <span style={{ color: '#fff', fontSize: '11px', fontFamily: F_JOST,
-                  fontWeight: '700', letterSpacing: '0.04em' }}>
+                <span style={{
+                  color: '#fff', fontSize: '11px', fontFamily: F_JOST,
+                  fontWeight: '700', letterSpacing: '0.04em'
+                }}>
                   {plans[activePlan].label}
                 </span>
               </div>
@@ -187,19 +195,21 @@ const MasterPlan = ({ setIsOpen }) => {
                 }}>
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
                     stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+                    <rect x="3" y="3" width="18" height="18" rx="2" /><path d="M3 9h18M9 21V9" />
                   </svg>
                 </div>
-                <p style={{ fontFamily: F_JOST, fontSize: '13px', color: 'rgba(255,255,255,0.7)',
-                  margin: 0, fontWeight: '600', letterSpacing: '0.04em' }}>
+                <p style={{
+                  fontFamily: F_JOST, fontSize: '13px', color: 'rgba(255,255,255,0.7)',
+                  margin: 0, fontWeight: '600', letterSpacing: '0.04em'
+                }}>
                   Register to Unlock Floor Plan
                 </p>
                 <button onClick={() => setIsOpen(true)} className="btn-gold"
                   style={{ padding: '11px 32px', fontSize: '13px', letterSpacing: '0.1em' }}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                     strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
                   </svg>
                   View Plan
                 </button>

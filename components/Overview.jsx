@@ -11,7 +11,7 @@ const F_SANS = 'var(--font-sans), Open Sans, sans-serif'
 const F_JOST = 'var(--font-jost), Montserrat, sans-serif'
 const F_SERIF = 'var(--font-serif), Cormorant Garamond, serif'
 
-const FULL_TEXT = `Trophy by Shivalik is a landmark commercial development located in GIFT City, Ahmedabad, India's first operational smart city and a rapidly emerging global financial hub. Designed to cater to modern businesses, the project offers premium office spaces within a future-ready ecosystem driven by innovation, connectivity, and global standards. Strategically positioned within the SEZ zone of GIFT City, the development provides businesses with a competitive edge through tax benefits, robust infrastructure, and seamless connectivity. With cutting-edge design, efficient layouts, and a professional environment, Trophy by Shivalik is ideal for enterprises, investors, and corporates seeking long-term growth and prestige.`
+const FULL_TEXT = `Shivalik Trophy is a landmark commercial development located in GIFT City, Ahmedabad, India's first operational smart city and a rapidly emerging global financial hub. Designed to cater to modern businesses, the project offers premium office spaces within a future-ready ecosystem driven by innovation, connectivity, and global standards. Strategically positioned within the SEZ zone of GIFT City, the development provides businesses with a competitive edge through tax benefits, robust infrastructure, and seamless connectivity. With cutting-edge design, efficient layouts, and a professional environment, Shivalik Trophy is ideal for enterprises, investors, and corporates seeking long-term growth and prestige.`
 
 const inputStyle = {
   width: '100%',
@@ -221,11 +221,11 @@ const Overview = () => (
             boxShadow: '0 16px 48px rgba(0,0,0,0.14)',
             border: '3px solid #fff', width: '100%', minHeight: '340px',
           }}>
-            <Image src={overviewImage} alt="Trophy by Shivalik" fill className="object-cover"
+            <Image src={overviewImage} alt="Shivalik Trophy" fill className="object-cover"
               sizes="(max-width: 1024px) 100vw, 33vw" priority />
             <div style={{
               position: 'absolute', bottom: 0, left: 0, right: 0,
-              background: 'linear-gradient(to top, rgba(5, 150, 105, 0.92), transparent)',
+              background: 'linear-gradient(to top, rgba(3, 147, 148, 0.92), transparent)',
               padding: '28px 16px 14px',
             }}>
               <p style={{

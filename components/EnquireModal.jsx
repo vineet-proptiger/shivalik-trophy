@@ -41,7 +41,7 @@ const EnquireModal = ({ isOpen, setIsOpen }) => {
 
         {/* LEFT — Image */}
         <div className="hidden sm:block sm:w-[45%] shrink-0 relative min-h-[480px]">
-          <Image src={popupImage} alt="Trophy by Shivalik" fill className="object-cover" sizes="(max-width: 768px) 0vw, 45vw" />
+          <Image src={popupImage} alt="Shivalik Trophy" fill className="object-cover" sizes="(max-width: 768px) 0vw, 45vw" />
           <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(26,26,46,0.85) 0%, rgba(26,26,46,0.1) 60%)' }} />
           <div className="absolute bottom-0 left-0 right-0 p-5 text-white z-10">
             <p className="text-[10px] font-semibold tracking-[3px] uppercase opacity-80 mb-1" style={{ fontFamily: F_SANS, color: 'var(--color-gold)' }}>SHIVALIK TROPHY</p>
@@ -58,10 +58,10 @@ const EnquireModal = ({ isOpen, setIsOpen }) => {
 
           {/* Mobile strip */}
           <div className="sm:hidden w-full h-44 relative shrink-0">
-            <Image src={popupImage} alt="Trophy by Shivalik" fill className="object-cover object-top" sizes="100vw" />
+            <Image src={popupImage} alt="Shivalik Trophy" fill className="object-cover object-top" sizes="100vw" />
             <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(26,26,46,0.6) 0%, transparent 60%)' }} />
             <div className="absolute bottom-3 left-4 text-white z-10">
-              <p className="text-[9px] uppercase tracking-[2px] opacity-80" style={{ fontFamily: F_SANS }}>TROPHY BY SHIVALIK</p>
+              <p className="text-[9px] uppercase tracking-[2px] opacity-80" style={{ fontFamily: F_SANS }}>SHIVALIK TROPHY</p>
               <p className="text-sm font-semibold" style={{ fontFamily: F_JOST }}>GIFT City, Ahmedabad</p>
             </div>
           </div>

@@ -9,10 +9,10 @@ module.exports = {
     extend: {
       colors: {
         gold: {
-          DEFAULT: 'var(--color-gold)',       /* #E92228 */
-          light:   'var(--color-gold-light)', /* #FF4D52 */
-          dark:    'var(--color-gold-dark)',  /* #C41E24 */
-          bg:      'var(--color-gold-bg)',    /* #fff3f3 */
+          DEFAULT: 'var(--color-gold)',       /* #039394 */
+          light:   'var(--color-gold-light)', /* #05b7b8 */
+          dark:    'var(--color-gold-dark)',  /* #026a6b */
+          bg:      'var(--color-gold-bg)',    /* #f0fbfb */
         },
         primary: {
           DEFAULT: 'var(--color-primary)',
@@ -36,9 +36,9 @@ module.exports = {
         jost:  ['var(--font-jost)',  'Montserrat',   'sans-serif'],
       },
       boxShadow: {
-        'red-sm': '0 2px 8px rgba(233,34,40,0.08)',
-        'red-md': '0 8px 24px rgba(233,34,40,0.14)',
-        'red-lg': '0 20px 48px rgba(233,34,40,0.18)',
+        'brand-sm': '0 2px 8px rgba(3,147,148,0.08)',
+        'brand-md': '0 8px 24px rgba(3,147,148,0.14)',
+        'brand-lg': '0 20px 48px rgba(3,147,148,0.18)',
         'card':   '0 4px 20px rgba(0,0,0,0.07)',
       },
       keyframes: {
@@ -56,8 +56,8 @@ module.exports = {
           to:   { opacity: '1', transform: 'translateY(0)'    },
         },
         pulseGlow: {
-          '0%, 100%': { boxShadow: '0 0 0 0   rgba(233,34,40,0.45)' },
-          '50%':      { boxShadow: '0 0 0 12px rgba(233,34,40,0)'   },
+          '0%, 100%': { boxShadow: '0 0 0 0   rgba(3,147,148,0.45)' },
+          '50%':      { boxShadow: '0 0 0 12px rgba(3,147,148,0)'   },
         },
         shimmer: {
           '0%':   { backgroundPosition: '-200% center' },

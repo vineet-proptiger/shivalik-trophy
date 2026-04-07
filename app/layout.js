@@ -30,8 +30,8 @@ const nephilm = localFont({
 })
 
 export const metadata = {
-  title: 'Trophy by Shivalik | Premium Office Spaces — GIFT City, Ahmedabad',
-  description: 'Trophy by Shivalik — Premium office spaces in GIFT City, Ahmedabad. Starting ₹3.5 Cr*. Located in SEZ zone. 10 minutes from airport. World-class infrastructure at India\'s Global Financial Hub.',
+  title: 'Shivalik Trophy | Premium Office Spaces — GIFT City, Ahmedabad',
+  description: 'Shivalik Trophy — Premium office spaces in GIFT City, Ahmedabad. Starting ₹3.5 Cr*. Located in SEZ zone. 10 minutes from airport. World-class infrastructure at India\'s Global Financial Hub.',
 }
 
 export default function RootLayout({ children }) {

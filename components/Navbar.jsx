@@ -19,7 +19,7 @@ const navLinks = [
 const ProjectLogo = () => (
   <img
     src="/images/logo/SHIVALIK.webp"
-    alt="Trophy by Shivalik"
+    alt="Shivalik Trophy"
     className="h-16 w-auto object-contain"
     style={{ maxWidth: '250px' }}
   />

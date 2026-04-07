@@ -5,47 +5,47 @@
 @import 'aos/dist/aos.css';
 
 /* ═══════════════════════════════════════════════════════════════
-   THEME VARIABLES — Shivalik Trophy (Green Theme Integration)
+   THEME VARIABLES — Shivalik Trophy (Teal-Cyan Theme)
    ═══════════════════════════════════════════════════════════════ */
 :root {
-  /* ── Green Brand Palette ── */
-  --color-gold: #10b981;
-  /* Primary green */
-  --color-gold-light: #34d399;
-  /* Lighter green */
-  --color-gold-dark: #059669;
-  /* Deeper green  */
-  --color-gold-bg: #ecfdf5;
-  /* Tinted green bg*/
+  /* ── Teal-Cyan Brand Palette ── */
+  --color-gold: #039394;
+  /* Primary brand color */
+  --color-gold-light: #05b7b8;
+  /* Lighter vibrant variant */
+  --color-gold-dark: #026a6b;
+  /* Deeper variant  */
+  --color-gold-bg: #f0fbfb;
+  /* Tinted background variant */
 
-  /* ── Dark Green Palette ── */
-  --color-primary: #064e3b;
-  --color-primary-light: #065f46;
-  --color-primary-dark: #022c22;
+  /* ── Deep Primary Palette ── */
+  --color-primary: #013a3b;
+  --color-primary-light: #025a5b;
+  --color-primary-dark: #002223;
 
-  --color-dark: #111827;
+  --color-dark: #0f172a;
   --color-dark-mid: #1e293b;
 
   /* ── Background Palette ── */
   --color-bg: #ffffff;
   --color-bg-light: #ffffff;
-  --color-bg-muted: #f3f4f6;
+  --color-bg-muted: #f1f5f9;
 
   /* ── Text Palette ── */
-  --color-text: #022c22;
-  --color-text-mid: #064e3b;
-  --color-text-light: #374151;
+  --color-text: #012b2c;
+  --color-text-mid: #013a3b;
+  --color-text-light: #475569;
 
   /* ── UI ── */
   --btn-radius: 6px;
   --btn-radius-pill: 50px;
 
   /* ── Shadows ── */
-  --shadow-sm: 0 2px 8px rgba(16, 185, 129, 0.08);
-  --shadow-md: 0 8px 24px rgba(16, 185, 129, 0.14);
-  --shadow-lg: 0 20px 48px rgba(16, 185, 129, 0.18);
+  --shadow-sm: 0 2px 8px rgba(3, 147, 148, 0.08);
+  --shadow-md: 0 8px 24px rgba(3, 147, 148, 0.14);
+  --shadow-lg: 0 20px 48px rgba(3, 147, 148, 0.18);
   --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.07);
-  --color-shadow-inner: rgba(16, 185, 129, 0.10);
+  --color-shadow-inner: rgba(3, 147, 148, 0.10);
 }
 
 /* ─── Keyframes ─────────────────────────────────────────────── */
@@ -92,11 +92,11 @@
 
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5);
+    box-shadow: 0 0 0 0 rgba(3, 147, 148, 0.5);
   }
 
   50% {
-    box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+    box-shadow: 0 0 0 10px rgba(3, 147, 148, 0);
   }
 }
 
@@ -126,11 +126,11 @@
 
   0%,
   100% {
-    border-color: rgba(16, 185, 129, 0.4);
+    border-color: rgba(3, 147, 148, 0.4);
   }
 
   50% {
-    border-color: rgba(16, 185, 129, 1);
+    border-color: rgba(3, 147, 148, 1);
   }
 }
 
@@ -223,9 +223,9 @@
     background: var(--color-gold-dark);
   }
 
-  /* ── Green selection ── */
+  /* ── Teal-Cyan selection ── */
   ::selection {
-    background: rgba(16, 185, 129, 0.15);
+    background: rgba(3, 147, 148, 0.15);
     color: var(--color-gold-dark);
   }
 }
@@ -252,7 +252,7 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+    box-shadow: 0 4px 14px rgba(3, 147, 148, 0.35);
     text-transform: uppercase;
     white-space: nowrap;
   }
@@ -284,7 +284,7 @@
 
   .btn-gold:active {
     transform: translateY(0);
-    box-shadow: 0 4px 10px rgba(16, 185, 129, 0.20);
+    box-shadow: 0 4px 10px rgba(3, 147, 148, 0.20);
   }
 
   /* ══ OUTLINED RED BUTTON ══ */
@@ -367,7 +367,7 @@
     padding: 16px 10px;
     font-size: 12px;
     letter-spacing: 0.08em;
-    box-shadow: -4px 0 18px rgba(16, 185, 129, 0.28);
+    box-shadow: -4px 0 18px rgba(3, 147, 148, 0.28);
   }
 
   .btn-floating-tab:hover {
@@ -375,7 +375,7 @@
     background: #fff !important;
     color: var(--color-gold) !important;
     border-color: var(--color-gold);
-    box-shadow: -6px 0 24px rgba(16, 185, 129, 0.35);
+    box-shadow: -6px 0 24px rgba(3, 147, 148, 0.35);
   }
 
   /* ══ SECTION TITLE ══ */
@@ -387,7 +387,7 @@
     letter-spacing: -0.01em;
   }
 
-  /* Red accent bar under headings */
+  /* Teal-Cyan accent bar under headings */
   .heading-accent {
     display: block;
     width: 48px;
@@ -414,7 +414,7 @@
 
   .form-input:focus {
     border-color: var(--color-gold);
-    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.10), inset 0 1px 3px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 0 0 3px rgba(3, 147, 148, 0.10), inset 0 1px 3px rgba(0, 0, 0, 0.04);
   }
 
   .form-input::placeholder {
@@ -469,7 +469,7 @@
   .pricing-card:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-lg);
-    border-color: rgba(16, 185, 129, 0.25);
+    border-color: rgba(3, 147, 148, 0.25);
   }
 
   .pricing-card:hover::after {
@@ -492,7 +492,7 @@
 
   .highlight-card:hover {
     border-color: var(--color-gold);
-    box-shadow: 0 8px 28px rgba(16, 185, 129, 0.15);
+    box-shadow: 0 8px 28px rgba(3, 147, 148, 0.15);
     transform: translateY(-4px);
   }
 
@@ -514,7 +514,7 @@
     border-color: var(--color-gold);
     background: var(--color-gold-bg);
     color: var(--color-gold);
-    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0.08);
+    box-shadow: 0 0 0 6px rgba(3, 147, 148, 0.08);
   }
 
   /* ══ SECTION WRAPPER — white card on diamond bg ══ */
@@ -547,7 +547,7 @@
   right: 0;
   z-index: 999;
   display: flex;
-  box-shadow: 0 -4px 20px rgba(16, 185, 129, 0.18);
+  box-shadow: 0 -4px 20px rgba(3, 147, 148, 0.18);
 }
 
 @media (min-width: 1024px) {
@@ -561,12 +561,12 @@ nav.fixed {
   background: rgba(255, 255, 255, 0.96) !important;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(16, 185, 129, 0.08);
+  border-bottom: 1px solid rgba(3, 147, 148, 0.08);
 }
 
-/* ─── Red focus ring globally ─────────────────────────────────── */
+/* ─── Teal-Cyan focus ring globally ─────────────────────────────────── */
 *:focus-visible {
-  outline: 2px solid rgba(16, 185, 129, 0.5);
+  outline: 2px solid rgba(3, 147, 148, 0.5);
   outline-offset: 3px;
   border-radius: 4px;
 }
