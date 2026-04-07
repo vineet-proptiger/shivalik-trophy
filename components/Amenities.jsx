@@ -22,19 +22,19 @@ const Amenities = ({ setIsOpen }) => {
         <div style={{ marginBottom: '36px', textAlign: 'center' }} data-aos="fade-up">
           <span style={{
             display: 'inline-block', padding: '4px 16px',
-            background: 'rgba(233,34,40,0.08)', borderRadius: '50px',
-            fontSize: '11px', fontWeight: '700', color: '#E92228',
+            background: 'var(--color-gold-bg)', borderRadius: '50px',
+            fontSize: '11px', fontWeight: '700', color: 'var(--color-gold)',
             fontFamily: F_JOST, letterSpacing: '0.1em', textTransform: 'uppercase',
-            border: '1px solid rgba(233,34,40,0.18)', marginBottom: '10px',
+            border: '1px solid var(--color-gold-light)', marginBottom: '10px',
           }}>World-Class Amenities</span>
           <h2 style={{
             fontFamily: F_JOST, fontWeight: '800', fontSize: '26px',
             color: '#111827', margin: '0 0 6px', letterSpacing: '-0.01em',
           }}>
             Business &amp;{' '}
-            <span style={{ color: '#E92228' }}>Lifestyle Infrastructure</span>
+            <span style={{ color: 'var(--color-gold)' }}>Lifestyle Infrastructure</span>
           </h2>
-          <div style={{ width: '60px', height: '3px', background: 'linear-gradient(90deg, #E92228, #FF4D52)', borderRadius: '2px', margin: '8px auto 12px' }} />
+          <div style={{ width: '60px', height: '3px', background: 'linear-gradient(90deg, var(--color-gold), var(--color-gold-light))', borderRadius: '2px', margin: '8px auto 12px' }} />
           <p style={{ fontFamily: F_SANS, fontSize: '14px', color: '#6b7280', margin: 0 }}>
             Trophy by Shivalik is designed to offer a future-ready work environment supported by global infrastructure
           </p>
@@ -56,9 +56,9 @@ const Amenities = ({ setIsOpen }) => {
                 overflow: 'hidden',
                 cursor: 'pointer',
                 aspectRatio: '16/10',
-                border: `2px solid ${hovered === idx ? '#E92228' : 'transparent'}`,
+                border: `2px solid ${hovered === idx ? 'var(--color-gold)' : 'transparent'}`,
                 boxShadow: hovered === idx
-                  ? '0 14px 36px rgba(233,34,40,0.20)'
+                  ? '0 14px 36px var(--color-shadow-inner)'
                   : '0 3px 12px rgba(0,0,0,0.09)',
                 transform: hovered === idx ? 'translateY(-5px) scale(1.01)' : 'translateY(0) scale(1)',
                 transition: 'all 0.32s cubic-bezier(0.4,0,0.2,1)',
@@ -79,7 +79,7 @@ const Amenities = ({ setIsOpen }) => {
               <div style={{
                 position: 'absolute', bottom: 0, left: 0, right: 0,
                 background: hovered === idx
-                  ? 'linear-gradient(to top, rgba(196,30,36,0.90) 0%, transparent 80%)'
+                  ? 'linear-gradient(to top, rgba(5, 150, 105, 0.90) 0%, transparent 80%)'
                   : 'linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 70%)',
                 padding: '32px 16px 14px',
                 transition: 'background 0.32s ease',
@@ -88,7 +88,7 @@ const Amenities = ({ setIsOpen }) => {
                   {/* dot */}
                   <span style={{
                     width: '6px', height: '6px', borderRadius: '50%',
-                    background: '#E92228', flexShrink: 0,
+                    background: 'var(--color-gold)', flexShrink: 0,
                     boxShadow: '0 0 0 2px rgba(255,255,255,0.4)',
                   }} />
                   <p style={{
@@ -102,7 +102,7 @@ const Amenities = ({ setIsOpen }) => {
               <div style={{
                 position: 'absolute', top: '12px', right: '12px',
                 width: '32px', height: '32px', borderRadius: '50%',
-                background: 'rgba(233,34,40,0.85)',
+                background: 'var(--color-gold)', opacity: 0.85,
                 backdropFilter: 'blur(4px)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 opacity: hovered === idx ? 1 : 0,
@@ -121,7 +121,7 @@ const Amenities = ({ setIsOpen }) => {
               {/* Index badge */}
               <div style={{
                 position: 'absolute', top: '12px', left: '12px',
-                background: 'rgba(233,34,40,0.85)',
+                background: 'var(--color-gold)', opacity: 0.85,
                 backdropFilter: 'blur(4px)',
                 color: '#fff', borderRadius: '6px',
                 padding: '2px 8px', fontSize: '10px',
@@ -163,7 +163,7 @@ const Amenities = ({ setIsOpen }) => {
           <button onClick={() => setLightbox(null)} style={{
             position: 'absolute', top: '20px', right: '20px', zIndex: 10,
             width: '40px', height: '40px', borderRadius: '50%',
-            background: 'rgba(233,34,40,0.85)', border: 'none',
+            background: 'var(--color-gold)', opacity: 0.85, border: 'none',
             color: '#fff', fontSize: '22px', cursor: 'pointer',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
           }}>&times;</button>

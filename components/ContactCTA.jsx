@@ -9,7 +9,7 @@ const F_SANS = 'var(--font-sans), Open Sans, sans-serif'
 const F_JOST = 'var(--font-jost), Montserrat, sans-serif'
 
 const ContactCTA = () => {
-  const [form, setForm] = useState({ fullname: '', phone: '' })
+  const [form, setForm] = useState({ fullname: '', phone: '', email: '' })
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState('')
@@ -34,7 +34,7 @@ const ContactCTA = () => {
     const payload = new FormData()
     payload.append('fullname', form.fullname)
     payload.append('phone', form.phone)
-    payload.append('email', '')
+    payload.append('email', form.email || '')
     payload.append('projectId', PROJECT_ID)
     payload.append('projectName', PROJECT_NAME)
     payload.append('form_name', 'Contact CTA Form')
@@ -56,29 +56,6 @@ const ContactCTA = () => {
       <div style={{ maxWidth: '680px', margin: '0 auto', textAlign: 'center' }}>
 
         <div style={{ textAlign: 'center', marginBottom: '36px' }} data-aos="fade-up">
-          <span style={{
-            display: 'inline-block', padding: '4px 16px',
-            background: 'rgba(233,34,40,0.08)', borderRadius: '50px',
-            fontSize: '11px', fontWeight: '700', color: '#E92228',
-            fontFamily: F_JOST, letterSpacing: '0.1em', textTransform: 'uppercase',
-            border: '1px solid rgba(233,34,40,0.18)', marginBottom: '10px',
-          }}>Book Site Visit</span>
-          <h2 style={{
-            fontFamily: F_JOST, fontWeight: '800', fontSize: '26px',
-            color: '#111827', margin: '0 0 8px', letterSpacing: '-0.01em',
-          }}>
-            Visit Trophy by Shivalik Today
-          </h2>
-          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
-            <span style={{
-              display: 'block', width: '40px', height: '3px',
-              background: 'linear-gradient(90deg, #E92228, #FF4D52)',
-              borderRadius: '2px',
-            }} />
-          </div>
-          <p className="text-sm sm:text-base" style={{ color: '#666', fontFamily: F_SANS }}>
-            Register now to get the best deal &amp; book your site visit at GIFT City
-          </p>
         </div>
 
         {success ? (
@@ -95,33 +72,95 @@ const ContactCTA = () => {
             <p style={{ color: '#666', fontSize: '14px', marginTop: '6px', fontFamily: F_SANS }}>Our team will contact you shortly.</p>
           </div>
         ) : (
-          <form onSubmit={submit} className="bg-[var(--color-bg)] rounded p-5 sm:p-8 shadow-[0_2px_12px_rgba(0,0,0,0.06)]"
-            data-aos="fade-up" data-aos-delay="200">
-            <div className="flex flex-col gap-4">
-              <input name="fullname" required value={form.fullname} onChange={handle} placeholder="Enter full name"
-                className="form-input" style={{ fontFamily: F_SANS }} />
-              <input name="phone" required value={form.phone} onChange={handle}
-                placeholder="10-digit mobile number" maxLength={10}
-                className="form-input" style={{ fontFamily: F_SANS }} />
+          <div style={{
+            background: '#fff', borderRadius: '16px',
+            boxShadow: '0 4px 24px var(--color-shadow-card)',
+            border: '1px solid var(--color-gold-light)',
+            overflow: 'hidden', display: 'flex', flexDirection: 'column', width: '100%',
+            maxWidth: '500px', margin: '0 auto'
+          }} data-aos="fade-up" data-aos-delay="200">
+            {/* Header */}
+            <div style={{
+              background: 'linear-gradient(135deg, var(--color-primary-dark), var(--color-primary))',
+              padding: '18px 20px', position: 'relative', overflow: 'hidden', textAlign: 'left'
+            }}>
+              <div style={{
+                position: 'absolute', top: 0, left: 0, right: 0, height: '2px',
+                background: 'linear-gradient(90deg, var(--color-gold), var(--color-gold-light))',
+              }} />
+              <h3 style={{
+                fontFamily: F_JOST, fontWeight: '800', fontSize: '18px',
+                color: '#fff', margin: '0 0 4px', letterSpacing: '-0.01em'
+              }}>
+                Book Site Visit Today
+              </h3>
+              <p style={{
+                fontFamily: F_SANS, fontSize: '12px',
+                color: 'rgba(255,255,255,0.6)', margin: 0
+              }}>
+                Register now to get the best deal &amp; book your site visit
+              </p>
             </div>
-            {error && <p style={{ color: 'red', fontSize: '12px', marginBottom: '12px' }}>{error}</p>}
-            <label style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', cursor: 'pointer', marginBottom: '24px', textAlign: 'left' }}>
-              <input type="checkbox" required style={{ accentColor: GOLD, marginTop: '2px', flexShrink: 0 }} />
-              <span style={{ fontSize: '13px', color: '#777', fontFamily: F_SANS, lineHeight: 1.5 }}>
-                I authorize Shivalik Group &amp; its representatives to contact me via Email / SMS / WhatsApp / Call.
-              </span>
-            </label>
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <button type="submit" disabled={loading}
-                className="btn-gold w-full sm:w-auto"
-                style={{ padding: '13px 48px' }}>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" />
-                </svg>
-                {loading ? 'Submitting...' : 'Submit Details'}
-              </button>
+
+            <div style={{ padding: '24px 20px', textAlign: 'left' }}>
+              <form onSubmit={submit} className="flex flex-col gap-4">
+                {/* Name */}
+                <div>
+                  <label style={{
+                    display: 'block', fontSize: '11px', fontWeight: '700', color: '#6b7280',
+                    fontFamily: F_JOST, letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '5px'
+                  }}>
+                    Full Name <span style={{ color: 'var(--color-gold)' }}>*</span>
+                  </label>
+                  <input name="fullname" required value={form.fullname} onChange={handle} placeholder="Enter full name"
+                    className="form-input" style={{ fontFamily: F_SANS, width: '100%' }} />
+                </div>
+
+                {/* Email */}
+                <div>
+                  <label style={{
+                    display: 'block', fontSize: '11px', fontWeight: '700', color: '#6b7280',
+                    fontFamily: F_JOST, letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '5px'
+                  }}>
+                    Email Address <span style={{ color: '#9ca3af', fontSize: '10px' }}>(Optional)</span>
+                  </label>
+                  <input name="email" value={form.email} onChange={handle} placeholder="Email address (Optional)"
+                    className="form-input" style={{ fontFamily: F_SANS, width: '100%' }} />
+                </div>
+
+                {/* Phone */}
+                <div>
+                  <label style={{
+                    display: 'block', fontSize: '11px', fontWeight: '700', color: '#6b7280',
+                    fontFamily: F_JOST, letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '5px'
+                  }}>
+                    Mobile Number <span style={{ color: 'var(--color-gold)' }}>*</span>
+                  </label>
+                  <input name="phone" required value={form.phone} onChange={handle}
+                    placeholder="10-digit mobile number" maxLength={10}
+                    className="form-input" style={{ fontFamily: F_SANS, width: '100%' }} />
+                </div>
+
+                {error && <p style={{ color: 'red', fontSize: '12px' }}>{error}</p>}
+
+                <label style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', cursor: 'pointer', textAlign: 'left' }}>
+                  <input type="checkbox" required style={{ accentColor: GOLD, marginTop: '2px', flexShrink: 0 }} />
+                  <span style={{ fontSize: '12px', color: '#777', fontFamily: F_SANS, lineHeight: 1.5 }}>
+                    I authorize the developer &amp; its representatives to contact me via Email / SMS / WhatsApp / Call.
+                  </span>
+                </label>
+
+                <button type="submit" disabled={loading}
+                  className="btn-gold w-full"
+                  style={{ padding: '14px', marginTop: '4px' }}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" />
+                  </svg>
+                  {loading ? 'Submitting...' : 'Submit Details'}
+                </button>
+              </form>
             </div>
-          </form>
+          </div>
         )}
       </div>
     </section>

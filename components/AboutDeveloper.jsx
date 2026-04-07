@@ -1,92 +1,259 @@
 'use client'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { PROJECT_ID, PROJECT_NAME, API_ENDPOINT, SHEET_NAME, SECRET_KEY, CITY_DISPLAY } from '../lib/config'
+import { getGeo, buildTrackingFields } from '../lib/formMeta'
 
 const GOLD = 'var(--color-gold)'
 const GOLD_DARK = 'var(--color-gold-dark)'
 const PRIMARY = 'var(--color-primary)'
 const F_SANS = 'var(--font-sans), Open Sans, sans-serif'
 const F_JOST = 'var(--font-jost), Montserrat, sans-serif'
-const F_SERIF = 'var(--font-serif), Cormorant Garamond, serif'
+
+const ContactForm = () => {
+  const [form, setForm] = useState({ fullname: '', phone: '', email: '' })
+  const [loading, setLoading] = useState(false)
+  const [success, setSuccess] = useState(false)
+  const [error, setError] = useState('')
+  const [ipAddress, setIpAddress] = useState('')
+  const [geoAddress, setGeoAddress] = useState(null)
+
+  useEffect(() => {
+    getGeo().then(d => {
+      if (!d) return
+      setIpAddress(d.ip || '')
+      setGeoAddress({ city: d.city, region: d.region, postal_code: d.postal_code, country: d.country })
+    })
+  }, [])
+
+  const handle = (e) => setForm({ ...form, [e.target.name]: e.target.value })
+
+  const submit = async (e) => {
+    e.preventDefault()
+    if (form.phone.length < 10) { setError('Enter valid 10-digit number'); return }
+    setError(''); setLoading(true)
+    const tracking = buildTrackingFields(ipAddress, geoAddress)
+    const payload = new FormData()
+    payload.append('fullname', form.fullname)
+    payload.append('phone', form.phone)
+    payload.append('email', form.email || '')
+    payload.append('projectId', PROJECT_ID)
+    payload.append('projectName', PROJECT_NAME)
+    payload.append('form_name', 'Developer Section Form')
+    payload.append('sheet_name', SHEET_NAME)
+    payload.append('secret', SECRET_KEY)
+    payload.append('city', CITY_DISPLAY)
+    Object.entries(tracking).forEach(([k, v]) => payload.append(k, v))
+    try {
+      const res = await fetch(API_ENDPOINT, { method: 'POST', body: payload })
+      const data = await res.json()
+      if (data.status) setSuccess(true)
+      else setError(data.msg || 'Something went wrong.')
+    } catch { setError('Network error. Please try again.') }
+    finally { setLoading(false) }
+  }
+
+  if (success) return (
+    <div style={{ padding: '40px 0', textAlign: 'center' }}>
+      <div style={{
+        width: '56px', height: '56px', borderRadius: '50%', background: 'var(--color-gold-bg)',
+        display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 12px'
+      }}>
+        <svg width="28" height="28" fill="none" stroke={GOLD_DARK} strokeWidth="2.5" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
+      <p style={{ fontWeight: '700', fontSize: '18px', color: 'var(--color-text)', fontFamily: F_SANS }}>Thank You!</p>
+      <p style={{ color: '#666', fontSize: '14px', marginTop: '6px', fontFamily: F_SANS }}>Our team will contact you shortly.</p>
+    </div>
+  )
+
+  return (
+    <form onSubmit={submit} className="flex flex-col gap-4">
+      <div>
+        <label style={{
+          display: 'block', fontSize: '11px', fontWeight: '700', color: '#6b7280',
+          fontFamily: F_JOST, letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '5px'
+        }}>Full Name <span style={{ color: GOLD }}>*</span></label>
+        <input name="fullname" required value={form.fullname} onChange={handle} placeholder="Enter full name"
+          className="form-input" style={{ fontFamily: F_SANS, width: '100%' }} />
+      </div>
+
+      <div>
+        <label style={{
+          display: 'block', fontSize: '11px', fontWeight: '700', color: '#6b7280',
+          fontFamily: F_JOST, letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '5px'
+        }}>Email Address <span style={{ color: '#9ca3af', fontSize: '10px' }}>(Optional)</span></label>
+        <input name="email" value={form.email} onChange={handle} placeholder="Email address (Optional)"
+          className="form-input" style={{ fontFamily: F_SANS, width: '100%' }} />
+      </div>
+
+      <div>
+        <label style={{
+          display: 'block', fontSize: '11px', fontWeight: '700', color: '#6b7280',
+          fontFamily: F_JOST, letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '5px'
+        }}>Mobile Number <span style={{ color: GOLD }}>*</span></label>
+        <input name="phone" required value={form.phone} onChange={handle}
+          placeholder="10-digit mobile number" maxLength={10}
+          className="form-input" style={{ fontFamily: F_SANS, width: '100%' }} />
+      </div>
+
+      {error && <p style={{ color: 'red', fontSize: '12px' }}>{error}</p>}
+
+      <label style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', cursor: 'pointer' }}>
+        <input type="checkbox" required style={{ accentColor: GOLD, marginTop: '2px', flexShrink: 0 }} />
+        <span style={{ fontSize: '12px', color: '#777', fontFamily: F_SANS, lineHeight: 1.5 }}>
+          I authorize the developer &amp; its representatives to contact me via Email / SMS / WhatsApp / Call.
+        </span>
+      </label>
+
+      <button type="submit" disabled={loading}
+        className="btn-gold w-full"
+        style={{ padding: '14px', marginTop: '4px' }}>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" />
+        </svg>
+        {loading ? 'Submitting...' : 'Submit Details'}
+      </button>
+    </form>
+  )
+}
 
 const AboutDeveloper = ({ setIsOpen }) => (
   <section id="developer" className="py-10 sm:py-14 bg-[var(--color-bg-muted)] border-b border-gray-100">
     <div className="container mx-auto px-4 md:px-8">
-      <div className="max-w-4xl mx-auto">
 
-        {/* Heading */}
-        <div className="text-center mb-10" data-aos="fade-up">
+      {/* Heading */}
+      <div className="text-center mb-10" data-aos="fade-up">
+        <span style={{
+          display: 'inline-block', padding: '4px 16px',
+          background: 'var(--color-gold-bg)', borderRadius: '50px',
+          fontSize: '11px', fontWeight: '700', color: 'var(--color-gold)',
+          fontFamily: F_JOST, letterSpacing: '0.1em', textTransform: 'uppercase',
+          border: '1px solid var(--color-gold-light)', marginBottom: '10px',
+        }}>Developer Profile</span>
+        <h2 style={{
+          fontFamily: F_JOST, fontWeight: '800', fontSize: '26px',
+          color: PRIMARY, margin: '0 0 8px', letterSpacing: '-0.01em',
+          textTransform: 'uppercase'
+        }}>
+          About the Developer
+        </h2>
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
           <span style={{
-            display: 'inline-block', padding: '4px 16px',
-            background: 'rgba(233,34,40,0.08)', borderRadius: '50px',
-            fontSize: '11px', fontWeight: '700', color: '#E92228',
-            fontFamily: F_JOST, letterSpacing: '0.1em', textTransform: 'uppercase',
-            border: '1px solid rgba(233,34,40,0.18)', marginBottom: '10px',
-          }}>Developer Profile</span>
-          <h2 style={{
-            fontFamily: F_JOST, fontWeight: '800', fontSize: '26px',
-            color: PRIMARY, margin: '0 0 8px', letterSpacing: '-0.01em',
-            textTransform: 'uppercase'
-          }}>
-            About the Developer
-          </h2>
-          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
-            <span style={{
-              display: 'block', width: '40px', height: '3px',
-              background: 'linear-gradient(90deg, #E92228, #FF4D52)',
-              borderRadius: '2px',
-            }} />
-          </div>
+            display: 'block', width: '40px', height: '3px',
+            background: 'linear-gradient(90deg, var(--color-gold), var(--color-gold-light))',
+            borderRadius: '2px',
+          }} />
         </div>
+      </div>
 
-        {/* Content Card */}
-        <div className="bg-white rounded-xl p-6 sm:p-10 shadow-sm flex flex-col sm:flex-row gap-6 sm:gap-10 items-start"
-          data-aos="fade-up" data-aos-delay="100">
+      {/* Two Column Layout */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch max-w-6xl mx-auto">
 
-          {/* Left — Logo / Icon placeholder */}
-          <div className="shrink-0 flex items-center justify-center w-full sm:w-[120px]">
+        {/* Left — Developer Info Card */}
+        <div style={{
+          background: '#fff',
+          display: 'flex', flexDirection: 'column', height: '100%',
+          borderRadius: '16px', overflow: 'hidden',
+          boxShadow: '0 4px 24px var(--color-shadow-card)',
+          border: '1px solid var(--color-gold-light)',
+        }} data-aos="fade-right" data-aos-delay="100">
+
+          {/* Dark Header */}
+          <div style={{
+            background: 'linear-gradient(135deg, var(--color-primary-dark), var(--color-primary))',
+            padding: '18px 24px', position: 'relative', overflow: 'hidden',
+          }}>
             <div style={{
-              width: '90px', height: '90px', borderRadius: '50%',
-              border: `3px solid ${GOLD}`,
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              background: 'var(--color-gold-bg)',
-            }}>
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke={GOLD_DARK} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                <polyline points="9 22 9 12 15 12 15 22" />
-              </svg>
+              position: 'absolute', top: 0, left: 0, right: 0, height: '2px',
+              background: 'linear-gradient(90deg, var(--color-gold), var(--color-gold-light))',
+            }} />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '14px', position: 'relative' }}>
+              <div style={{
+                width: '42px', height: '42px', borderRadius: '10px', flexShrink: 0,
+                background: 'rgba(255,255,255,0.1)',
+                border: '1px solid rgba(255,255,255,0.15)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+              }}>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                  <polyline points="9 22 9 12 15 12 15 22" />
+                </svg>
+              </div>
+              <div>
+                <h3 style={{ fontFamily: F_JOST, fontWeight: '800', fontSize: '18px', color: '#fff', margin: '0 0 4px', letterSpacing: '-0.01em' }}>
+                  Shivalik Trophy
+                </h3>
+
+              </div>
             </div>
           </div>
 
-          {/* Right — Text */}
-          <div className="flex-1">
-            <h3 className="text-lg sm:text-xl font-bold mb-3"
-              style={{ color: PRIMARY, fontFamily: F_SANS }}>
-              Shivalik Group
-            </h3>
-            <p className="text-sm sm:text-base mb-5"
-              style={{ color: '#555', fontFamily: F_SANS, lineHeight: 1.8 }}>
-              Shivalik Group is a reputed real estate developer known for delivering high-quality residential and commercial projects with a focus on innovation, design, and timely execution. With a strong presence in Ahmedabad, the group has built a legacy of trust and excellence, creating developments that combine modern infrastructure with long-term investment value.
+          {/* White Body */}
+          <div style={{ padding: '24px 28px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <p style={{ color: '#555', fontFamily: F_SANS, lineHeight: 1.85, fontSize: '14px', margin: '0 0 20px' }}>
+              Shivalik is a reputed real estate developer known for delivering high-quality residential and commercial projects with a focus on innovation, design, and timely execution. With a strong presence in the NCR and beyond, they have built a legacy of trust and excellence, creating developments that combine modern infrastructure with long-term investment value.
             </p>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 mb-6">
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px', marginBottom: '22px' }}>
               {[
                 { value: '20+', label: 'Years of Experience' },
                 { value: '50+', label: 'Projects Delivered' },
                 { value: '5000+', label: 'Happy Families' },
               ].map((stat, i) => (
-                <div key={i} style={{ textAlign: 'center', padding: '12px 8px', background: 'var(--color-bg-muted)', borderRadius: '8px' }}>
+                <div key={i} style={{
+                  textAlign: 'center', padding: '14px 8px',
+                  background: 'var(--color-bg-muted)',
+                  borderRadius: '10px',
+                  border: '1px solid var(--color-gold-light)',
+                }}>
                   <p style={{ fontSize: '22px', fontWeight: '800', color: GOLD_DARK, fontFamily: F_JOST, margin: 0 }}>{stat.value}</p>
-                  <p style={{ fontSize: '11px', color: '#777', fontFamily: F_SANS, marginTop: '2px', fontWeight: '600', textTransform: 'uppercase' }}>{stat.label}</p>
+                  <p style={{ fontSize: '10px', color: '#888', fontFamily: F_SANS, marginTop: '4px', fontWeight: '600', textTransform: 'uppercase', lineHeight: 1.3 }}>{stat.label}</p>
                 </div>
               ))}
             </div>
 
             <button onClick={() => setIsOpen(true)}
               className="btn-gold"
-              style={{ padding: '10px 28px', fontSize: '14px' }}>
+              style={{ padding: '11px 28px', fontSize: '13px', width: '100%' }}>
               Know More
             </button>
+          </div>
+        </div>
+
+        {/* Right — Contact Form */}
+        <div style={{
+          background: '#fff', borderRadius: '16px',
+          boxShadow: '0 4px 24px var(--color-shadow-card)',
+          border: '1px solid var(--color-gold-light)',
+          overflow: 'hidden',
+          display: 'flex', flexDirection: 'column', height: '100%',
+        }} data-aos="fade-left" data-aos-delay="200">
+
+          {/* Form Header */}
+          <div style={{
+            background: 'linear-gradient(135deg, var(--color-primary-dark), var(--color-primary))',
+            padding: '18px 24px', position: 'relative', overflow: 'hidden'
+          }}>
+            <div style={{
+              position: 'absolute', top: 0, left: 0, right: 0, height: '2px',
+              background: 'linear-gradient(90deg, var(--color-gold), var(--color-gold-light))',
+            }} />
+            <h3 style={{
+              fontFamily: F_JOST, fontWeight: '800', fontSize: '18px',
+              color: '#fff', margin: '0 0 4px', letterSpacing: '-0.01em'
+            }}>
+              Book Site Visit Today
+            </h3>
+            <p style={{ fontFamily: F_SANS, fontSize: '12px', color: 'rgba(255,255,255,0.6)', margin: 0 }}>
+              Register now to get the best deal &amp; book your site visit
+            </p>
+          </div>
+
+          {/* Form Body */}
+          <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+            <ContactForm />
           </div>
         </div>
 

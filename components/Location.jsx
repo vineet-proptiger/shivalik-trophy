@@ -50,19 +50,19 @@ const Location = () => {
         <div style={{ marginBottom: '36px', textAlign: 'center' }} data-aos="fade-up">
           <span style={{
             display: 'inline-block', padding: '4px 16px',
-            background: 'rgba(233,34,40,0.08)', borderRadius: '50px',
-            fontSize: '11px', fontWeight: '700', color: '#E92228',
+            background: 'var(--color-gold-bg)', borderRadius: '50px',
+            fontSize: '11px', fontWeight: '700', color: 'var(--color-gold)',
             fontFamily: F_JOST, letterSpacing: '0.1em', textTransform: 'uppercase',
-            border: '1px solid rgba(233,34,40,0.18)', marginBottom: '10px',
+            border: '1px solid var(--color-gold-light)', marginBottom: '10px',
           }}>GIFT City, Ahmedabad</span>
           <h2 style={{
             fontFamily: F_JOST, fontWeight: '800', fontSize: '26px',
             color: '#111827', margin: '0 0 6px', letterSpacing: '-0.01em',
           }}>
             Location{' '}
-            <span style={{ color: '#E92228' }}>Advantages</span>
+            <span style={{ color: 'var(--color-gold)' }}>Advantages</span>
           </h2>
-          <div style={{ width: '60px', height: '3px', background: 'linear-gradient(90deg, #E92228, #FF4D52)', borderRadius: '2px', margin: '8px auto 12px' }} />
+          <div style={{ width: '60px', height: '3px', background: 'linear-gradient(90deg, var(--color-gold), var(--color-gold-light))', borderRadius: '2px', margin: '8px auto 12px' }} />
           <p style={{ fontFamily: F_SANS, fontSize: '14px', color: '#6b7280', margin: 0 }}>
             Strategically positioned at India's most prestigious financial address
           </p>
@@ -86,30 +86,30 @@ const Location = () => {
                     style={{
                       width: '100%', display: 'flex', justifyContent: 'space-between',
                       alignItems: 'center', padding: '15px 20px',
-                      background: openIndex === i ? 'rgba(233,34,40,0.04)' : '#fff',
+                      background: openIndex === i ? 'var(--color-gold-bg)' : '#fff',
                       border: 'none', cursor: 'pointer', textAlign: 'left',
                       transition: 'background 0.2s',
-                      borderLeft: openIndex === i ? '3px solid #E92228' : '3px solid transparent',
+                      borderLeft: openIndex === i ? '3px solid var(--color-gold)' : '3px solid transparent',
                     }}
                   >
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                       <span style={{
                         width: '30px', height: '30px', borderRadius: '8px',
-                        background: openIndex === i ? 'rgba(233,34,40,0.1)' : '#f9fafb',
+                        background: openIndex === i ? 'var(--color-gold-bg)' : '#f9fafb',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        color: openIndex === i ? '#E92228' : '#9ca3af',
+                        color: openIndex === i ? 'var(--color-gold)' : '#9ca3af',
                         transition: 'all 0.2s', flexShrink: 0,
                       }}>
                         {cat.icon}
                       </span>
                       <span style={{
                         fontSize: '14px', fontWeight: '700', fontFamily: F_JOST,
-                        color: openIndex === i ? '#E92228' : '#374151',
+                        color: openIndex === i ? 'var(--color-gold)' : '#374151',
                         transition: 'color 0.2s',
                       }}>{cat.label}</span>
                     </div>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                      stroke={openIndex === i ? '#E92228' : '#9ca3af'}
+                      stroke={openIndex === i ? 'var(--color-gold)' : '#9ca3af'}
                       strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
                       style={{
                         flexShrink: 0, transition: 'transform 0.25s',
@@ -130,7 +130,7 @@ const Location = () => {
                         }}>
                           <span style={{
                             width: '6px', height: '6px', borderRadius: '50%',
-                            background: '#E92228', flexShrink: 0, marginTop: '6px',
+                            background: 'var(--color-gold)', flexShrink: 0, marginTop: '6px',
                           }} />
                           <span style={{
                             fontSize: '13px', color: '#4b5563',
@@ -151,15 +151,15 @@ const Location = () => {
           <div className="w-full lg:flex-1" data-aos="fade-left" style={{ minHeight: '420px' }}>
             <div style={{
               borderRadius: '16px', overflow: 'hidden',
-              boxShadow: '0 8px 32px rgba(233,34,40,0.15)',
-              border: '2px solid #E92228',
+              boxShadow: '0 8px 32px var(--color-shadow-inner)',
+              border: '2px solid var(--color-gold)',
               height: '100%', minHeight: '420px',
               position: 'relative',
             }}>
               {/* Red top accent */}
               <div style={{
                 position: 'absolute', top: 0, left: 0, right: 0, height: '3px',
-                background: 'linear-gradient(90deg, #E92228, #FF4D52)', zIndex: 10,
+                background: 'linear-gradient(90deg, var(--color-gold), var(--color-gold-light))', zIndex: 10,
               }} />
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.3986891406886!2d72.67525631496565!3d23.15394688468637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e836d48bec9c7%3A0x2e68bf49fba14a5e!2sGIFT%20City%2C%20Gandhinagar%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1700000000000"
@@ -170,7 +170,7 @@ const Location = () => {
               {/* Map label badge */}
               <div style={{
                 position: 'absolute', bottom: '16px', left: '16px', zIndex: 10,
-                background: 'rgba(233,34,40,0.90)', backdropFilter: 'blur(6px)',
+                background: 'var(--color-gold)', opacity: 0.9, backdropFilter: 'blur(6px)',
                 borderRadius: '8px', padding: '6px 14px',
                 display: 'flex', alignItems: 'center', gap: '6px',
               }}>

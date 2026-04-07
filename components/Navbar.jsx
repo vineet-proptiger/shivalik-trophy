@@ -16,56 +16,13 @@ const navLinks = [
 ]
 
 /* ── Inline SVG Logo ─────────────────────────────────────────── */
-const ShivalikLogo = () => (
-  <svg width="220" height="48" viewBox="0 0 220 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Trophy Cup Icon */}
-    <g transform="translate(0, 4)">
-      {/* Cup body */}
-      <path d="M16 6 L16 22 Q16 30 24 32 Q32 30 32 22 L32 6 Z"
-        fill="none" stroke="var(--color-gold)" strokeWidth="2" strokeLinejoin="round" />
-      {/* Cup handles */}
-      <path d="M16 10 Q8 10 8 17 Q8 22 16 22" fill="none" stroke="var(--color-gold)" strokeWidth="1.8" strokeLinecap="round" />
-      <path d="M32 10 Q40 10 40 17 Q40 22 32 22" fill="none" stroke="var(--color-gold)" strokeWidth="1.8" strokeLinecap="round" />
-      {/* Stem */}
-      <line x1="24" y1="32" x2="24" y2="38" stroke="var(--color-gold)" strokeWidth="2" strokeLinecap="round" />
-      {/* Base */}
-      <rect x="16" y="38" width="16" height="3" rx="1.5" fill="var(--color-gold)" />
-      {/* Star on cup */}
-      <path d="M24 12 L25.2 15.6 L29 15.6 L26 17.8 L27.2 21.4 L24 19.2 L20.8 21.4 L22 17.8 L19 15.6 L22.8 15.6 Z"
-        fill="var(--color-gold)" opacity="0.85" />
-    </g>
-
-    {/* Vertical divider */}
-    <line x1="52" y1="8" x2="52" y2="40" stroke="var(--color-gold)" strokeWidth="1" opacity="0.4" />
-
-    {/* SHIVALIK text */}
-    <text x="62" y="22"
-      fontFamily="'Cormorant Garamond', Georgia, serif"
-      fontSize="18"
-      fontWeight="600"
-      letterSpacing="3"
-      fill="var(--color-primary)">
-      SHIVALIK
-    </text>
-
-    {/* Thin gold line under SHIVALIK */}
-    <line x1="62" y1="26" x2="178" y2="26" stroke="var(--color-gold)" strokeWidth="0.8" opacity="0.6" />
-
-    {/* TROPHY text */}
-    <text x="63" y="39"
-      fontFamily="'Open Sans', sans-serif"
-      fontSize="11"
-      fontWeight="700"
-      letterSpacing="5.5"
-      fill="var(--color-gold)">
-      TROPHY
-    </text>
-
-    {/* Small tagline dots */}
-    <circle cx="62" cy="43.5" r="1.2" fill="var(--color-gold)" opacity="0.5" />
-    <circle cx="178" cy="43.5" r="1.2" fill="var(--color-gold)" opacity="0.5" />
-    <line x1="66" y1="43.5" x2="174" y2="43.5" stroke="var(--color-gold)" strokeWidth="0.6" opacity="0.3" />
-  </svg>
+const ProjectLogo = () => (
+  <img
+    src="/images/logo/SHIVALIK.webp"
+    alt="Trophy by Shivalik"
+    className="h-16 w-auto object-contain"
+    style={{ maxWidth: '250px' }}
+  />
 )
 
 const Navbar = ({ setIsOpen }) => {
@@ -84,11 +41,11 @@ const Navbar = ({ setIsOpen }) => {
       <div className="h-0.5 w-full" style={{ background: `linear-gradient(90deg, var(--color-gold), var(--color-gold-light), var(--color-gold))` }} />
 
       <div className="container mx-auto px-4 md:px-8">
-        <div className="flex items-center justify-between h-[66px]">
+        <div className="flex items-center justify-between h-[80px]">
 
           {/* Logo */}
           <a href="#" className="flex items-center shrink-0">
-            <ShivalikLogo />
+            <ProjectLogo />
           </a>
 
           {/* Desktop Nav */}
@@ -112,11 +69,6 @@ const Navbar = ({ setIsOpen }) => {
 
           {/* Mobile */}
           <div className="lg:hidden flex items-center gap-3">
-            <a href="tel:+917827178271"
-              className="btn-primary"
-              style={{ padding: '8px 12px', fontSize: '12px', borderRadius: '4px' }}>
-              Call Us
-            </a>
             <button onClick={() => setMobileOpen(!mobileOpen)} className="text-[var(--color-text-mid)] p-1">
               {mobileOpen ? <X size={24} /> : <Menu size={24} />}
             </button>

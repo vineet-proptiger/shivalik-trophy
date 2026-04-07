@@ -53,8 +53,8 @@ const HighlightCard = ({ item, idx, setIsOpen }) => {
       data-aos-delay={idx * 60}
       style={{
         background: '#fff',
-        border: '1px solid #E92228',
-        borderTop: '5px solid #E92228',
+        border: '1px solid var(--color-gold-light)',
+        borderTop: '5px solid var(--color-gold)',
         borderRadius: '14px',
         padding: '28px 16px 20px',
         display: 'flex',
@@ -64,8 +64,8 @@ const HighlightCard = ({ item, idx, setIsOpen }) => {
         cursor: 'default',
         transition: 'all 0.28s cubic-bezier(0.4,0,0.2,1)',
         boxShadow: hovered
-          ? '0 10px 32px rgba(233,34,40,0.12)'
-          : '0 4px 15px rgba(233,34,40,0.06)',
+          ? '0 10px 32px var(--color-shadow-inner)'
+          : '0 4px 15px rgba(0,0,0,0.05)',
         transform: hovered ? 'translateY(-5px)' : 'translateY(0)',
         position: 'relative',
         overflow: 'hidden',
@@ -76,7 +76,7 @@ const HighlightCard = ({ item, idx, setIsOpen }) => {
       <div style={{
         position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)',
         width: '60px', height: '5px',
-        background: 'linear-gradient(90deg, #E92228, #FF4D52)',
+        background: 'linear-gradient(90deg, var(--color-gold), var(--color-gold-light))',
         borderRadius: '0 0 10px 10px',
       }} />
 
@@ -86,11 +86,11 @@ const HighlightCard = ({ item, idx, setIsOpen }) => {
         width: '62px', height: '62px', borderRadius: '50%',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         marginBottom: '14px',
-        background: hovered ? '#E92228' : 'rgba(233,34,40,0.06)',
-        border: `2px solid ${hovered ? '#E92228' : 'rgba(233,34,40,0.2)'}`,
-        color: hovered ? '#fff' : '#E92228',
+        background: hovered ? 'var(--color-gold)' : 'var(--color-gold-bg)',
+        border: `2px solid ${hovered ? 'var(--color-gold)' : 'var(--color-gold-light)'}`,
+        color: hovered ? '#fff' : 'var(--color-gold)',
         transition: 'all 0.3s ease',
-        boxShadow: hovered ? '0 0 20px rgba(233,34,40,0.3)' : 'none',
+        boxShadow: hovered ? '0 0 20px var(--color-shadow-inner)' : 'none',
       }}>
         {item.icon}
       </div>
@@ -100,7 +100,7 @@ const HighlightCard = ({ item, idx, setIsOpen }) => {
         fontFamily: F_SANS,
         fontSize: '13px',
         lineHeight: 1.6,
-        color: '#E92228',
+        color: 'var(--color-gold)',
         fontWeight: '600',
         margin: 0,
         transition: 'color 0.28s ease',
@@ -123,22 +123,22 @@ const Highlights = ({ setIsOpen }) => (
       <div style={{ textAlign: 'center', marginBottom: '40px' }} data-aos="fade-up">
         <span style={{
           display: 'inline-block', padding: '4px 16px',
-          background: 'rgba(233,34,40,0.08)', borderRadius: '50px',
-          fontSize: '11px', fontWeight: '700', color: '#E92228',
+          background: 'var(--color-gold-bg)', borderRadius: '50px',
+          fontSize: '11px', fontWeight: '700', color: 'var(--color-gold)',
           fontFamily: F_JOST, letterSpacing: '0.1em', textTransform: 'uppercase',
-          border: '1px solid rgba(233,34,40,0.18)', marginBottom: '10px',
+          border: '1px solid var(--color-gold-light)', marginBottom: '10px',
         }}>Why Choose Us</span>
         <h2 style={{
           fontFamily: F_JOST, fontWeight: '800', fontSize: '26px',
           color: '#111827', margin: 0, letterSpacing: '-0.01em',
         }}>
           Key Highlights:{' '}
-          <span style={{ color: '#E92228' }}>Why Trophy by Shivalik?</span>
+          <span style={{ color: 'var(--color-gold)' }}>Why Trophy by Shivalik?</span>
         </h2>
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
           <span style={{
             display: 'block', width: '40px', height: '3px',
-            background: 'linear-gradient(90deg, #E92228, #FF4D52)',
+            background: 'linear-gradient(90deg, var(--color-gold), var(--color-gold-light))',
             borderRadius: '2px',
           }} />
         </div>

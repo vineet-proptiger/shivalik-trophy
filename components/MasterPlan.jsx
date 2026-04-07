@@ -27,19 +27,19 @@ const MasterPlan = ({ setIsOpen }) => {
         <div style={{ marginBottom: '36px', textAlign: 'center' }} data-aos="fade-up">
           <span style={{
             display: 'inline-block', padding: '4px 16px',
-            background: 'rgba(233,34,40,0.08)', borderRadius: '50px',
-            fontSize: '11px', fontWeight: '700', color: '#E92228',
+            background: 'var(--color-gold-bg)', borderRadius: '50px',
+            fontSize: '11px', fontWeight: '700', color: 'var(--color-gold)',
             fontFamily: F_JOST, letterSpacing: '0.1em', textTransform: 'uppercase',
-            border: '1px solid rgba(233,34,40,0.18)', marginBottom: '10px',
+            border: '1px solid var(--color-gold-light)', marginBottom: '10px',
           }}>Layout & Configuration</span>
           <h2 style={{
             fontFamily: F_JOST, fontWeight: '800', fontSize: '26px',
             color: '#111827', margin: '0 0 6px', letterSpacing: '-0.01em',
           }}>
             Floor Plans &amp;{' '}
-            <span style={{ color: '#E92228' }}>Layout</span>
+            <span style={{ color: 'var(--color-gold)' }}>Layout</span>
           </h2>
-          <div style={{ width: '60px', height: '3px', background: 'linear-gradient(90deg, #E92228, #FF4D52)', borderRadius: '2px', margin: '8px auto 12px' }} />
+          <div style={{ width: '60px', height: '3px', background: 'linear-gradient(90deg, var(--color-gold), var(--color-gold-light))', borderRadius: '2px', margin: '8px auto 12px' }} />
           <p style={{ fontFamily: F_SANS, fontSize: '14px', color: '#6b7280', margin: 0 }}>
             Thoughtfully designed spaces for modern business needs
           </p>
@@ -61,7 +61,7 @@ const MasterPlan = ({ setIsOpen }) => {
               }}>
                 <div style={{
                   position: 'absolute', top: 0, left: 0, right: 0, height: '3px',
-                  background: 'linear-gradient(90deg, #E92228, #FF4D52)',
+                  background: 'linear-gradient(90deg, var(--color-gold), var(--color-gold-light))',
                 }} />
                 <p style={{ fontFamily: F_JOST, fontWeight: '700', fontSize: '13px',
                   color: '#fff', margin: 0, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
@@ -79,9 +79,9 @@ const MasterPlan = ({ setIsOpen }) => {
                   style={{
                     width: '100%', textAlign: 'left',
                     padding: '15px 20px',
-                    background: activePlan === idx ? 'rgba(233,34,40,0.04)' : '#fff',
+                    background: activePlan === idx ? 'var(--color-gold-bg)' : '#fff',
                     border: 'none',
-                    borderLeft: activePlan === idx ? '3px solid #E92228' : '3px solid transparent',
+                    borderLeft: activePlan === idx ? '3px solid var(--color-gold)' : '3px solid transparent',
                     borderBottom: idx < plans.length - 1 ? '1px solid #f5f5f5' : 'none',
                     cursor: 'pointer',
                     transition: 'all 0.2s',
@@ -91,7 +91,7 @@ const MasterPlan = ({ setIsOpen }) => {
                     {/* Number badge */}
                     <span style={{
                       width: '28px', height: '28px', borderRadius: '8px', flexShrink: 0,
-                      background: activePlan === idx ? '#E92228' : '#f3f4f6',
+                      background: activePlan === idx ? 'var(--color-gold)' : '#f3f4f6',
                       color: activePlan === idx ? '#fff' : '#9ca3af',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       fontSize: '11px', fontFamily: F_JOST, fontWeight: '800',
@@ -101,13 +101,13 @@ const MasterPlan = ({ setIsOpen }) => {
                     </span>
                     <span style={{
                       fontSize: '13px', fontWeight: '700', fontFamily: F_JOST,
-                      color: activePlan === idx ? '#E92228' : '#374151',
+                      color: activePlan === idx ? 'var(--color-gold)' : '#374151',
                       transition: 'color 0.2s',
                     }}>{plan.label}</span>
                   </div>
                   {/* Arrow */}
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                    stroke={activePlan === idx ? '#E92228' : '#d1d5db'}
+                    stroke={activePlan === idx ? 'var(--color-gold)' : '#d1d5db'}
                     strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
                     <polyline points="9 18 15 12 9 6"/>
                   </svg>
@@ -117,12 +117,12 @@ const MasterPlan = ({ setIsOpen }) => {
               {/* Info box */}
               <div style={{
                 margin: '12px', padding: '12px',
-                background: 'rgba(233,34,40,0.04)', borderRadius: '10px',
-                border: '1px dashed rgba(233,34,40,0.2)',
+                background: 'var(--color-gold-bg)', borderRadius: '10px',
+                border: '1px dashed var(--color-gold-light)',
               }}>
                 <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                    stroke="#E92228" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                    stroke="var(--color-gold)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
                     style={{ flexShrink: 0, marginTop: '1px' }}>
                     <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/>
                     <line x1="12" y1="16" x2="12.01" y2="16"/>
@@ -140,20 +140,20 @@ const MasterPlan = ({ setIsOpen }) => {
           <div className="w-full lg:flex-1" data-aos="zoom-in">
             <div style={{
               position: 'relative', borderRadius: '16px', overflow: 'hidden',
-              border: '2px solid #E92228',
-              boxShadow: '0 10px 36px rgba(233,34,40,0.16)',
+              border: '2px solid var(--color-gold)',
+              boxShadow: '0 10px 36px var(--color-shadow-inner)',
               height: '100%', minHeight: '400px',
             }}>
               {/* Red top accent */}
               <div style={{
                 position: 'absolute', top: 0, left: 0, right: 0, height: '3px',
-                background: 'linear-gradient(90deg, #E92228, #FF4D52)', zIndex: 10,
+                background: 'linear-gradient(90deg, var(--color-gold), var(--color-gold-light))', zIndex: 10,
               }} />
 
               {/* Plan label top-left */}
               <div style={{
                 position: 'absolute', top: '16px', left: '16px', zIndex: 10,
-                background: 'rgba(233,34,40,0.88)', backdropFilter: 'blur(6px)',
+                background: 'var(--color-gold)', opacity: 0.9, backdropFilter: 'blur(6px)',
                 borderRadius: '8px', padding: '5px 12px',
               }}>
                 <span style={{ color: '#fff', fontSize: '11px', fontFamily: F_JOST,

@@ -27,7 +27,7 @@ const inputStyle = {
 }
 
 const EarlyForm = () => {
-  const [form, setForm] = useState({ fullname: '', phone: '' })
+  const [form, setForm] = useState({ fullname: '', phone: '', email: '' })
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState('')
@@ -52,8 +52,8 @@ const EarlyForm = () => {
     const tracking = buildTrackingFields(ipAddress, geoAddress)
     const payload = new FormData()
     payload.append('fullname', form.fullname)
+    payload.append('email', form.email)
     payload.append('phone', form.phone)
-    payload.append('email', '')
     payload.append('projectId', PROJECT_ID)
     payload.append('projectName', PROJECT_NAME)
     payload.append('form_name', 'Overview Form')
@@ -74,10 +74,10 @@ const EarlyForm = () => {
     <div style={{ textAlign: 'center', padding: '32px 0' }}>
       <div style={{
         width: '56px', height: '56px', borderRadius: '50%',
-        background: 'rgba(233,34,40,0.08)',
+        background: 'var(--color-gold-bg)',
         display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 12px'
       }}>
-        <svg width="26" height="26" fill="none" stroke="#E92228" strokeWidth="2.5" viewBox="0 0 24 24">
+        <svg width="26" height="26" fill="none" stroke="var(--color-gold)" strokeWidth="2.5" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
         </svg>
       </div>
@@ -95,7 +95,7 @@ const EarlyForm = () => {
           display: 'block', fontSize: '11px', fontWeight: '700', color: '#6b7280',
           fontFamily: F_JOST, letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '5px'
         }}>
-          Full Name <span style={{ color: '#E92228' }}>*</span>
+          Full Name <span style={{ color: 'var(--color-gold)' }}>*</span>
         </label>
         <input
           name="fullname" required value={form.fullname} onChange={handle}
@@ -104,8 +104,29 @@ const EarlyForm = () => {
           onBlur={() => setFocused('')}
           style={{
             ...inputStyle,
-            borderColor: focused === 'fullname' ? '#E92228' : '#e5e7eb',
-            boxShadow: focused === 'fullname' ? '0 0 0 3px rgba(233,34,40,0.10)' : 'none',
+            borderColor: focused === 'fullname' ? 'var(--color-gold)' : '#e5e7eb',
+            boxShadow: focused === 'fullname' ? '0 0 0 3px var(--color-shadow-inner)' : 'none',
+          }}
+        />
+      </div>
+
+      {/* Email */}
+      <div>
+        <label style={{
+          display: 'block', fontSize: '11px', fontWeight: '700', color: '#6b7280',
+          fontFamily: F_JOST, letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '5px'
+        }}>
+          Email Address <span style={{ color: '#9ca3af', fontSize: '10px' }}>(Optional)</span>
+        </label>
+        <input
+          name="email" value={form.email} onChange={handle}
+          placeholder="Email Address (Optional)"
+          onFocus={() => setFocused('email')}
+          onBlur={() => setFocused('')}
+          style={{
+            ...inputStyle,
+            borderColor: focused === 'email' ? 'var(--color-gold)' : '#e5e7eb',
+            boxShadow: focused === 'email' ? '0 0 0 3px var(--color-shadow-inner)' : 'none',
           }}
         />
       </div>
@@ -116,7 +137,7 @@ const EarlyForm = () => {
           display: 'block', fontSize: '11px', fontWeight: '700', color: '#6b7280',
           fontFamily: F_JOST, letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '5px'
         }}>
-          Mobile Number <span style={{ color: '#E92228' }}>*</span>
+          Mobile Number <span style={{ color: 'var(--color-gold)' }}>*</span>
         </label>
         <input
           name="phone" required value={form.phone} onChange={handle}
@@ -125,22 +146,22 @@ const EarlyForm = () => {
           onBlur={() => setFocused('')}
           style={{
             ...inputStyle,
-            borderColor: focused === 'phone' ? '#E92228' : '#e5e7eb',
-            boxShadow: focused === 'phone' ? '0 0 0 3px rgba(233,34,40,0.10)' : 'none',
+            borderColor: focused === 'phone' ? 'var(--color-gold)' : '#e5e7eb',
+            boxShadow: focused === 'phone' ? '0 0 0 3px var(--color-shadow-inner)' : 'none',
           }}
         />
       </div>
 
       {error && (
-        <p style={{ color: '#E92228', fontSize: '12px', fontFamily: F_SANS, marginTop: '-6px' }}>{error}</p>
+        <p style={{ color: 'var(--color-gold)', fontSize: '12px', fontFamily: F_SANS, marginTop: '-6px' }}>{error}</p>
       )}
 
       {/* Consent */}
       <label style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', cursor: 'pointer', marginTop: 'auto' }}>
         <input type="checkbox" required
-          style={{ accentColor: '#E92228', marginTop: '3px', flexShrink: 0, width: '14px', height: '14px' }} />
+          style={{ accentColor: 'var(--color-gold)', marginTop: '3px', flexShrink: 0, width: '14px', height: '14px' }} />
         <span style={{ fontSize: '11px', color: '#9ca3af', fontFamily: F_SANS, lineHeight: 1.6 }}>
-          I authorize Shivalik Group &amp; its representatives to contact me via Email / SMS / WhatsApp / Call.
+          I authorize the developer &amp; its representatives to contact me via Email / SMS / WhatsApp / Call.
         </span>
       </label>
 
@@ -171,21 +192,21 @@ const Overview = () => (
       <div style={{ textAlign: 'center', marginBottom: '36px' }} data-aos="fade-up">
         <span style={{
           display: 'inline-block', padding: '4px 16px',
-          background: 'rgba(233,34,40,0.08)', borderRadius: '50px',
-          fontSize: '11px', fontWeight: '700', color: '#E92228',
+          background: 'var(--color-gold-bg)', borderRadius: '50px',
+          fontSize: '11px', fontWeight: '700', color: 'var(--color-gold)',
           fontFamily: F_JOST, letterSpacing: '0.1em', textTransform: 'uppercase',
-          border: '1px solid rgba(233,34,40,0.18)', marginBottom: '10px',
+          border: '1px solid var(--color-gold-light)', marginBottom: '10px',
         }}>About the Project</span>
         <h2 style={{
           fontFamily: F_JOST, fontWeight: '800', fontSize: '26px',
           color: '#111827', margin: 0, letterSpacing: '-0.01em',
         }}>
-          Project <span style={{ color: '#E92228' }}>Overview</span>
+          Project <span style={{ color: 'var(--color-gold)' }}>Overview</span>
         </h2>
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
           <span style={{
             display: 'block', width: '40px', height: '3px',
-            background: 'linear-gradient(90deg, #E92228, #FF4D52)', borderRadius: '2px'
+            background: 'linear-gradient(90deg, var(--color-gold), var(--color-gold-light))', borderRadius: '2px'
           }} />
         </div>
       </div>
@@ -204,7 +225,7 @@ const Overview = () => (
               sizes="(max-width: 1024px) 100vw, 33vw" priority />
             <div style={{
               position: 'absolute', bottom: 0, left: 0, right: 0,
-              background: 'linear-gradient(to top, rgba(196,30,36,0.92), transparent)',
+              background: 'linear-gradient(to top, rgba(5, 150, 105, 0.92), transparent)',
               padding: '28px 16px 14px',
             }}>
               <p style={{
@@ -234,9 +255,9 @@ const Overview = () => (
               <div style={{ float: 'left', marginRight: '8px', marginBottom: '2px', marginTop: '2px' }}>
                 <svg width="22" height="22" viewBox="0 0 32 32" fill="none">
                   <path d="M10 8C6.686 8 4 10.686 4 14s2.686 6 6 6v4l4-4c0-3.314-2.686-6-6-6zm12 0c-3.314 0-6 2.686-6 6s2.686 6 6 6v4l4-4c0-3.314-2.686-6-6-6z"
-                    fill="#E92228" opacity="0.15" />
+                    fill="var(--color-gold)" opacity="0.15" />
                   <path d="M10 8C6.686 8 4 10.686 4 14s2.686 6 6 6v4l4-4c0-3.314-2.686-6-6-6zm12 0c-3.314 0-6 2.686-6 6s2.686 6 6 6v4l4-4c0-3.314-2.686-6-6-6z"
-                    fill="none" stroke="#E92228" strokeWidth="1.8" opacity="0.4" />
+                    fill="none" stroke="var(--color-gold)" strokeWidth="1.8" opacity="0.4" />
                 </svg>
               </div>
               <p style={{
@@ -248,9 +269,9 @@ const Overview = () => (
                 <span style={{ display: 'inline-block', marginLeft: '6px', verticalAlign: 'middle' }}>
                   <svg width="20" height="20" viewBox="0 0 32 32" fill="none" style={{ transform: 'rotate(180deg)' }}>
                     <path d="M10 8C6.686 8 4 10.686 4 14s2.686 6 6 6v4l4-4c0-3.314-2.686-6-6-6zm12 0c-3.314 0-6 2.686-6 6s2.686 6 6 6v4l4-4c0-3.314-2.686-6-6-6z"
-                      fill="#E92228" opacity="0.15" />
+                      fill="var(--color-gold)" opacity="0.15" />
                     <path d="M10 8C6.686 8 4 10.686 4 14s2.686 6 6 6v4l4-4c0-3.314-2.686-6-6-6zm12 0c-3.314 0-6 2.686-6 6s2.686 6 6 6v4l4-4c0-3.314-2.686-6-6-6z"
-                      fill="none" stroke="#E92228" strokeWidth="1.8" opacity="0.4" />
+                      fill="none" stroke="var(--color-gold)" strokeWidth="1.8" opacity="0.4" />
                   </svg>
                 </span>
               </p>
@@ -264,17 +285,17 @@ const Overview = () => (
         <div data-aos="fade-left" style={{ display: 'flex' }}>
           <div style={{
             background: '#fff', borderRadius: '16px',
-            boxShadow: '0 4px 24px rgba(233,34,40,0.10)',
-            border: '1px solid rgba(233,34,40,0.12)',
+            boxShadow: '0 4px 24px var(--color-shadow-card)',
+            border: '1px solid var(--color-gold-light)',
             overflow: 'hidden', display: 'flex', flexDirection: 'column', width: '100%',
           }}>
             <div style={{
-              background: 'linear-gradient(135deg, #111827, #1f2937)',
+              background: 'linear-gradient(135deg, var(--color-primary-dark), var(--color-primary))',
               padding: '18px 20px', position: 'relative', overflow: 'hidden',
             }}>
               <div style={{
                 position: 'absolute', top: 0, left: 0, right: 0, height: '2px',
-                background: 'linear-gradient(90deg, #E92228, #FF4D52)',
+                background: 'linear-gradient(90deg, var(--color-gold), var(--color-gold-light))',
               }} />
               <h3 style={{
                 fontFamily: F_JOST, fontWeight: '800', fontSize: '16px',

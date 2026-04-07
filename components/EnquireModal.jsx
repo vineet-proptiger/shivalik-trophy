@@ -7,7 +7,7 @@ import { popupImage } from '../lib/images'
 
 const F_SANS = 'var(--font-sans), Open Sans, sans-serif'
 const F_JOST = 'var(--font-jost), Montserrat, sans-serif'
-const F_SERIF= 'var(--font-serif), Cormorant Garamond, serif'
+const F_SERIF = 'var(--font-serif), Cormorant Garamond, serif'
 
 const EnquireModal = ({ isOpen, setIsOpen }) => {
   const autoTriggered = useRef(false)
@@ -33,8 +33,10 @@ const EnquireModal = ({ isOpen, setIsOpen }) => {
       onClick={() => setIsOpen(false)}>
 
       <div className="relative bg-white w-full rounded-2xl overflow-hidden shadow-2xl flex flex-col sm:flex-row"
-        style={{ maxWidth: '960px', width: '95vw', maxHeight: '95vh',
-          animation: 'slideInRight 0.45s cubic-bezier(0.22,1,0.36,1) forwards' }}
+        style={{
+          maxWidth: '960px', width: '95vw', maxHeight: '95vh',
+          animation: 'slideInRight 0.45s cubic-bezier(0.22,1,0.36,1) forwards'
+        }}
         onClick={(e) => e.stopPropagation()}>
 
         {/* LEFT — Image */}
@@ -68,10 +70,10 @@ const EnquireModal = ({ isOpen, setIsOpen }) => {
             <div className="text-center mb-6">
               <span style={{
                 display: 'inline-block', padding: '4px 16px',
-                background: 'rgba(233,34,40,0.08)', borderRadius: '50px',
-                fontSize: '10px', fontWeight: '700', color: '#E92228',
+                background: 'var(--color-gold-bg)', borderRadius: '50px',
+                fontSize: '10px', fontWeight: '700', color: 'var(--color-gold)',
                 fontFamily: F_JOST, letterSpacing: '0.1em', textTransform: 'uppercase',
-                border: '1px solid rgba(233,34,40,0.18)', marginBottom: '10px',
+                border: '1px solid var(--color-gold-light)', marginBottom: '10px',
               }}>
                 Exclusive Benefits
               </span>
@@ -81,7 +83,7 @@ const EnquireModal = ({ isOpen, setIsOpen }) => {
               <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
                 <span style={{
                   display: 'block', width: '36px', height: '3px',
-                  background: 'linear-gradient(90deg, #E92228, #FF4D52)',
+                  background: 'linear-gradient(90deg, var(--color-gold), var(--color-gold-light))',
                   borderRadius: '2px',
                 }} />
               </div>

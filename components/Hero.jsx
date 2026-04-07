@@ -18,15 +18,15 @@ const Hero = ({ setIsOpen }) => {
   }, [])
 
   return (
-    <section className="pt-[68px] bg-[var(--color-bg)]">
+    <section className="pt-[82px] bg-[var(--color-bg)]">
       <div className="flex flex-col lg:flex-row">
 
         {/* LEFT — Image Carousel */}
-        <div className="w-full lg:w-[62%] relative h-[250px] sm:h-[350px] lg:h-auto lg:min-h-[calc(100vh-68px)]"
+        <div className="w-full lg:w-[62%] relative h-[250px] sm:h-[350px] lg:h-auto lg:min-h-[calc(100vh-82px)]"
           data-aos="fade-right">
 
           {/* Carousel — outline draws 10px inside, not clipped by overflow-hidden */}
-          <div className="overflow-hidden" style={{ position: 'absolute', inset: 0, outline: '2px solid #E92228', outlineOffset: '-10px', zIndex: 1 }}>
+          <div className="overflow-hidden" style={{ position: 'absolute', inset: 0, outline: '2px solid var(--color-gold)', outlineOffset: '-10px', zIndex: 1 }}>
             <div
               className="flex h-full"
               style={{
@@ -73,16 +73,16 @@ const Hero = ({ setIsOpen }) => {
             {/* shimmer line */}
             <div style={{
               position: 'absolute', top: 0, left: 0, right: 0, height: '2px',
-              background: 'linear-gradient(90deg, transparent, #E92228, transparent)',
+              background: 'linear-gradient(90deg, transparent, var(--color-gold), transparent)',
             }} />
             <p style={{
               fontFamily: F_JOST, fontSize: '13px', fontWeight: '700',
               letterSpacing: '0.12em', textTransform: 'uppercase', margin: 0,
               color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px'
             }}>
-              <span style={{ display: 'inline-block', width: '24px', height: '1.5px', background: '#E92228' }} />
+              <span style={{ display: 'inline-block', width: '24px', height: '1.5px', background: 'var(--color-gold)' }} />
               Work at India’s Global Financial Hub
-              <span style={{ display: 'inline-block', width: '24px', height: '1.5px', background: '#E92228' }} />
+              <span style={{ display: 'inline-block', width: '24px', height: '1.5px', background: 'var(--color-gold)' }} />
             </p>
           </div>
 
@@ -129,20 +129,20 @@ const Hero = ({ setIsOpen }) => {
                   fontSize: '11px',
                   fontFamily: F_SANS,
                   fontWeight: '600',
-                  background: 'rgba(233,34,40,0.07)',
+                  background: 'var(--color-gold-bg)',
                   color: 'var(--color-gold-dark)',
-                  border: '1px solid rgba(233,34,40,0.18)',
+                  border: '1px solid var(--color-gold-light)',
                   letterSpacing: '0.01em',
                 }}>{tag}</span>
               ))}
             </div>
 
-            {/* ── Red Highlights Box ── */}
+            {/* ── Green Highlights Box ── */}
             <div style={{
-              background: 'linear-gradient(135deg, #E92228 0%, #C41E24 100%)',
+              background: 'linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-dark) 100%)',
               borderRadius: '12px',
               padding: '4px 14px',
-              boxShadow: '0 6px 20px rgba(233,34,40,0.30)',
+              boxShadow: '0 6px 20px var(--color-shadow-inner)',
             }} data-aos="fade-up" data-aos-delay="400">
               {[
                 'Located in SEZ at GIFT City',

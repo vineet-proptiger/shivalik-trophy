@@ -55,11 +55,11 @@ const Pricing = ({ setIsOpen }) => {
         <div className="text-center mb-16" data-aos="fade-up">
           <span style={{
             display: 'inline-block', padding: '4px 16px',
-            background: 'rgba(233,34,40,0.08)', borderRadius: '50px',
-            fontSize: '11px', fontWeight: '700', color: '#E92228',
+            background: 'var(--color-gold-bg)', borderRadius: '50px',
+            fontSize: '11px', fontWeight: '700', color: 'var(--color-gold)',
             fontFamily: 'var(--font-jost), Montserrat, sans-serif',
             letterSpacing: '0.1em', textTransform: 'uppercase',
-            border: '1px solid rgba(233,34,40,0.18)', marginBottom: '10px',
+            border: '1px solid var(--color-gold-light)', marginBottom: '10px',
           }}>
             Premium Commercial
           </span>
