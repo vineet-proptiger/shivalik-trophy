@@ -160,11 +160,11 @@ const Pricing = ({ setIsOpen }) => {
         </div>
 
         {/* Footer Note */}
-        <div className="mt-16 text-center" data-aos="fade-up">
+        {/* <div className="mt-16 text-center" data-aos="fade-up">
           <p className="text-gray-400 text-sm italic" style={{ fontFamily: F_SANS }}>
             * Government taxes & other charges extra as applicable. Prices subject to change without notice.
           </p>
-        </div>
+        </div> */}
       </div>
     </section>
   );
