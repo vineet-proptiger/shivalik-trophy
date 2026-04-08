@@ -220,7 +220,7 @@ const Overview = () => (
             boxShadow: '0 16px 48px rgba(0,0,0,0.14)',
             border: '3px solid #fff', width: '100%', minHeight: '340px',
           }}>
-            <Image src={overviewImage} alt="Shivalik Trophy" fill className="object-cover"
+            <Image src={overviewImage} alt="Shivalik Trophy" fill className="object-cover object-top"
               sizes="(max-width: 1024px) 100vw, 33vw" priority />
             <div style={{
               position: 'absolute', bottom: 0, left: 0, right: 0,
