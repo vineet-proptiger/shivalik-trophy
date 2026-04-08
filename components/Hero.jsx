@@ -18,7 +18,7 @@ const Hero = ({ setIsOpen }) => {
   }, [])
 
   return (
-    <section className="pt-[82px] !pb-0 bg-[var(--color-bg)]">
+    <section className="!pt-[82px] !pb-0 bg-[var(--color-bg)]">
       <div className="flex flex-col lg:flex-row">
 
         {/* LEFT — Image Carousel */}
@@ -26,7 +26,7 @@ const Hero = ({ setIsOpen }) => {
           data-aos="fade-right">
 
           {/* Carousel — outline draws 10px inside, not clipped by overflow-hidden */}
-          <div className="overflow-hidden" style={{ position: 'absolute', inset: 0, outline: '2px solid var(--color-gold)', outlineOffset: '-10px', zIndex: 1 }}>
+          <div className="overflow-hidden" style={{ position: 'absolute', inset: 0, border: '5px solid var(--color-gold)', zIndex: 1, borderRadius: '10px' }}>
             <div
               className="flex h-full"
               style={{
