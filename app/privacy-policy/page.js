@@ -280,7 +280,7 @@ export default function PrivacyPolicy() {
                 </p>
 
                 <a
-                  href="tel:18001031041"
+                  href="tel:9718344024"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold transition-all hover:opacity-90"
                   style={{ background: GOLD, color: '#fff' }}
                 >
