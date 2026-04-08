@@ -54,7 +54,7 @@ export default function Home() {
       {/* Mobile Sticky Bottom Bar */}
       <div className="sticky-bottom-bar">
         <a
-          href="tel:+917827178271"
+          href="tel:+919718344024"
           className="flex-1 flex items-center justify-center btn-primary !py-2 !px-0 !rounded-none"
         >
           <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
