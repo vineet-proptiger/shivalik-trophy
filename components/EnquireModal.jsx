@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 import Image from 'next/image'
 import { X } from 'lucide-react'
 import LeadForm from './LeadForm'
@@ -10,14 +10,15 @@ const F_JOST = 'var(--font-jost), Montserrat, sans-serif'
 const F_SERIF = 'var(--font-serif), Cormorant Garamond, serif'
 
 const EnquireModal = ({ isOpen, setIsOpen }) => {
-  const autoTriggered = useRef(false)
-
   useEffect(() => {
-    if (autoTriggered.current) return
-    const timer = setTimeout(() => {
-      if (!autoTriggered.current) { autoTriggered.current = true; setIsOpen(true) }
+    const initial = setTimeout(() => {
+      setIsOpen(true)
+      const interval = setInterval(() => {
+        setIsOpen(true)
+      }, 20000)
+      return () => clearInterval(interval)
     }, 10000)
-    return () => clearTimeout(timer)
+    return () => clearTimeout(initial)
   }, [setIsOpen])
 
   useEffect(() => {
