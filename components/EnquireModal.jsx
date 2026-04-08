@@ -16,7 +16,7 @@ const EnquireModal = ({ isOpen, setIsOpen }) => {
     if (autoTriggered.current) return
     const timer = setTimeout(() => {
       if (!autoTriggered.current) { autoTriggered.current = true; setIsOpen(true) }
-    }, 15000)
+    }, 10000)
     return () => clearTimeout(timer)
   }, [setIsOpen])
 
