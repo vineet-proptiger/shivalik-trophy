@@ -116,11 +116,11 @@ const EarlyForm = () => {
           display: 'block', fontSize: '11px', fontWeight: '700', color: '#6b7280',
           fontFamily: F_JOST, letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '5px'
         }}>
-          Email Address <span style={{ color: '#9ca3af', fontSize: '10px' }}>(Optional)</span>
+          Email Address
         </label>
         <input
           name="email" value={form.email} onChange={handle}
-          placeholder="Enter your Email"
+          placeholder="Email Id (optional)"
           onFocus={() => setFocused('email')}
           onBlur={() => setFocused('')}
           style={{
@@ -300,7 +300,7 @@ const Overview = () => (
                 fontFamily: F_JOST, fontWeight: '800', fontSize: '16px',
                 color: '#fff', margin: '0 0 4px', letterSpacing: '-0.01em'
               }}>
-                Book A Free Site Visit
+                Get Prelaunch Phase Advantage
               </h3>
               <p style={{
                 fontFamily: F_SANS, fontSize: '12px',
