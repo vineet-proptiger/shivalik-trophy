@@ -120,7 +120,7 @@ const EarlyForm = () => {
         </label>
         <input
           name="email" value={form.email} onChange={handle}
-          placeholder="Email Address (Optional)"
+          placeholder="Enter your Email"
           onFocus={() => setFocused('email')}
           onBlur={() => setFocused('')}
           style={{
@@ -179,8 +179,7 @@ const EarlyForm = () => {
 }
 
 const Overview = () => (
-  <section id="overview" style={{
-    padding: '56px 0',
+  <section id="overview" className="!pt-1 !pb-4 sm:!py-10" style={{
     background: '#f8f9fa',
     backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cpath d='M24 2 L46 24 L24 46 L2 24 Z' fill='none' stroke='%23e5e7eb' stroke-width='0.5'/%3E%3C/svg%3E")`,
     backgroundSize: '48px 48px',

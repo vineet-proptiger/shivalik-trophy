@@ -124,13 +124,13 @@ const Pricing = ({ setIsOpen }) => {
               <div className="p-7 pt-6">
                 <div className="mb-6">
                   <span className="text-[10px] text-gray-400 uppercase tracking-[0.15em] font-medium block mb-1" style={{ fontFamily: F_SANS }}>Starting At</span>
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-2 sm:gap-3 flex-nowrap whitespace-nowrap">
                     {unit.oldPrice && (
-                      <span className="text-lg line-through font-medium opacity-60" style={{ fontFamily: F_SANS, color: GOLD }}>
+                      <span className="text-sm sm:text-lg line-through font-medium opacity-60" style={{ fontFamily: F_SANS, color: GOLD }}>
                         {unit.oldPrice}
                       </span>
                     )}
-                    <p className="text-2xl font-bold" style={{ fontFamily: F_SANS, color: GOLD }}>
+                    <p className="text-lg sm:text-2xl font-bold" style={{ fontFamily: F_SANS, color: GOLD }}>
                       {unit.price}
                     </p>
                   </div>

@@ -91,7 +91,7 @@ const EnquireModal = ({ isOpen, setIsOpen }) => {
 
             <p className="text-center text-[13px] text-gray-500 mb-6" style={{ fontFamily: F_SANS }}>
               Register Now To Get{' '}
-              <span className="blink-price font-bold" style={{ color: 'var(--color-gold-dark)' }}>Best Support</span>
+              <span className="blink-price font-bold" style={{ color: 'var(--color-gold-dark)' }}>Best Offer</span>
             </p>
             <LeadForm formName="Popup Modal" btnText="Submit Details" />
           </div>

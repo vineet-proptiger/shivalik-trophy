@@ -80,7 +80,7 @@ const LeadForm = ({ formName = 'Hero Form', btnText = 'Submit Details' }) => {
     <form onSubmit={handleSubmit} className="flex flex-col gap-1">
       <input type="text" name="fullname" required placeholder="Enter full name" value={formData.fullname} onChange={handleChange}
         className={inputClass} style={{ fontFamily: F_SANS }} />
-      <input type="email" name="email" placeholder="Email address (Optional)" value={formData.email} onChange={handleChange}
+      <input type="email" name="email" placeholder="Enter your Email" value={formData.email} onChange={handleChange}
         className={inputClass} style={{ fontFamily: F_SANS }} />
       <input type="tel" name="phone" required placeholder="10-digit mobile number" maxLength={10} value={formData.phone} onChange={handleChange}
         className={inputClass} style={{ fontFamily: F_SANS }} />

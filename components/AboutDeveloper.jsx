@@ -83,7 +83,7 @@ const ContactForm = () => {
           display: 'block', fontSize: '11px', fontWeight: '700', color: '#6b7280',
           fontFamily: F_JOST, letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '5px'
         }}>Email Address <span style={{ color: '#9ca3af', fontSize: '10px' }}>(Optional)</span></label>
-        <input name="email" value={form.email} onChange={handle} placeholder="Email address (Optional)"
+        <input name="email" value={form.email} onChange={handle} placeholder="Enter your Email"
           className="form-input" style={{ fontFamily: F_SANS, width: '100%' }} />
       </div>
 

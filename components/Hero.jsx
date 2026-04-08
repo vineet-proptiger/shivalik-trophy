@@ -18,7 +18,7 @@ const Hero = ({ setIsOpen }) => {
   }, [])
 
   return (
-    <section className="pt-[82px] bg-[var(--color-bg)]">
+    <section className="pt-[82px] !pb-0 bg-[var(--color-bg)]">
       <div className="flex flex-col lg:flex-row">
 
         {/* LEFT — Image Carousel */}
@@ -190,12 +190,12 @@ const Hero = ({ setIsOpen }) => {
               }}>
                 Starting From
               </p>
-              <div className="flex items-center justify-center gap-3">
-                <span className="line-through font-medium opacity-60" style={{ fontFamily: F_SANS, fontSize: '18px', color: GOLD }}>
+              <div className="flex items-center justify-center gap-2 sm:gap-3 flex-nowrap whitespace-nowrap">
+                <span className="line-through font-medium opacity-60 text-[14px] sm:text-[18px]" style={{ fontFamily: F_SANS, color: GOLD }}>
                   ₹ 4.10 Cr*
                 </span>
-                <span className="blink-price" style={{
-                  fontWeight: '800', fontSize: '28px',
+                <span className="blink-price text-[18px] sm:text-[28px]" style={{
+                  fontWeight: '800',
                   color: 'var(--color-gold)',
                   fontFamily: F_JOST,
                   lineHeight: 1,

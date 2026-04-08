@@ -26,13 +26,13 @@ export default function PrivacyPolicy() {
 
         <div className="container mx-auto px-4 md:px-8 flex items-center justify-between h-[80px]">
           <Link href="/" className="flex items-center">
-            <img src="/images/logo/SHIVALIK.webp" alt="Shivalik Trophy" className="h-14 w-auto object-contain" />
+            <img src="/images/logo/SHIVALIK.webp" alt="Shivalik Trophy" className="h-10 sm:h-14 w-auto object-contain" />
           </Link>
           <Link
             href="/"
-            className="text-sm font-semibold px-6 py-2.5 rounded-full transition-all hover:opacity-90 btn-primary"
+            className="text-[11px] sm:text-sm font-semibold px-4 py-2 sm:px-6 sm:py-2.5 rounded-full transition-all hover:opacity-90 btn-primary shadow-lg"
           >
-            ← Back to Home
+            ← BACK TO HOME
           </Link>
         </div>
       </nav>
@@ -42,9 +42,8 @@ export default function PrivacyPolicy() {
 
       {/* ── Hero Banner ── */}
       <section
-        className="relative flex items-center justify-center text-center"
+        className="relative flex items-center justify-center text-center min-h-[140px] sm:min-h-[200px]"
         style={{
-          minHeight: '220px',
           backgroundImage: 'url(/images/hero/banner.webp)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
@@ -54,7 +53,7 @@ export default function PrivacyPolicy() {
         {/* Dark overlay */}
         <div className="absolute inset-0" style={{ background: 'rgba(0, 0, 0, 0.7)' }}></div>
 
-        <div className="relative z-10 px-4 py-16" data-aos="fade-up">
+        <div className="relative z-10 px-4 py-10 sm:py-16" data-aos="fade-up">
           <h1
             className="text-white font-bold mb-4"
             style={{
