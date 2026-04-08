@@ -222,7 +222,7 @@ const Overview = () => (
           }}>
             <Image src={overviewImage} alt="Shivalik Trophy" fill className="object-cover object-top"
               sizes="(max-width: 1024px) 100vw, 33vw" priority />
-            <div style={{
+            {/* <div style={{
               position: 'absolute', bottom: 0, left: 0, right: 0,
               background: 'linear-gradient(to top, rgba(3, 147, 148, 0.92), transparent)',
               padding: '28px 16px 14px',
@@ -239,7 +239,7 @@ const Overview = () => (
               }}>
                 Ahmedabad, Gujarat
               </p>
-            </div>
+            </div> */}
           </div>
         </div>
 
