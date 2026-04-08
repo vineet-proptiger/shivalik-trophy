@@ -78,7 +78,7 @@ const EnquireModal = ({ isOpen, setIsOpen }) => {
                 Exclusive Benefits
               </span>
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 leading-snug uppercase tracking-tight" style={{ fontFamily: F_JOST }}>
-                We&apos;re Just a Message Away
+                We&apos;re Just a Message Away Advance
               </h3>
               <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
                 <span style={{
@@ -91,7 +91,7 @@ const EnquireModal = ({ isOpen, setIsOpen }) => {
 
             <p className="text-center text-[13px] text-gray-500 mb-6" style={{ fontFamily: F_SANS }}>
               Register Now To Get{' '}
-              <span className="blink-price font-bold" style={{ color: 'var(--color-gold-dark)' }}>Best Offer</span>
+              <span className="blink-price font-bold" style={{ color: 'var(--color-gold-dark)' }}>Best Offers</span>
             </p>
             <LeadForm formName="Popup Modal" btnText="Submit Details" />
           </div>
