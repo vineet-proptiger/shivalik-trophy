@@ -158,7 +158,7 @@ const EarlyForm = () => {
 
       {/* Consent */}
       <label style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', cursor: 'pointer', marginTop: 'auto' }}>
-        <input type="checkbox" required
+        <input type="checkbox" required defaultChecked
           style={{ accentColor: 'var(--color-gold)', marginTop: '3px', flexShrink: 0, width: '14px', height: '14px' }} />
         <span style={{ fontSize: '11px', color: '#9ca3af', fontFamily: F_SANS, lineHeight: 1.6 }}>
           I authorize the developer &amp; its representatives to contact me via Email / SMS / WhatsApp / Call.
@@ -195,7 +195,7 @@ const Overview = () => (
           fontSize: '11px', fontWeight: '700', color: 'var(--color-gold)',
           fontFamily: F_JOST, letterSpacing: '0.1em', textTransform: 'uppercase',
           border: '1px solid var(--color-gold-light)', marginBottom: '10px',
-        }}>About the Project</span>
+        }}>Shivalik Trophy New Launch</span>
         <h2 style={{
           fontFamily: F_JOST, fontWeight: '800', fontSize: '26px',
           color: '#111827', margin: 0, letterSpacing: '-0.01em',
@@ -300,7 +300,7 @@ const Overview = () => (
                 fontFamily: F_JOST, fontWeight: '800', fontSize: '16px',
                 color: '#fff', margin: '0 0 4px', letterSpacing: '-0.01em'
               }}>
-                Get Early Phase Launch
+                Book A Free Site Visit
               </h3>
               <p style={{
                 fontFamily: F_SANS, fontSize: '12px',

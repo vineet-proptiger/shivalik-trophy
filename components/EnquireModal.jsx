@@ -78,7 +78,7 @@ const EnquireModal = ({ isOpen, setIsOpen }) => {
                 Exclusive Benefits
               </span>
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 leading-snug uppercase tracking-tight" style={{ fontFamily: F_JOST }}>
-                We&apos;re Just a Message Away Advance
+                We&apos;re Just a Message Away
               </h3>
               <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
                 <span style={{

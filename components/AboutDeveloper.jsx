@@ -100,7 +100,7 @@ const ContactForm = () => {
       {error && <p style={{ color: 'red', fontSize: '12px' }}>{error}</p>}
 
       <label style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', cursor: 'pointer' }}>
-        <input type="checkbox" required style={{ accentColor: GOLD, marginTop: '2px', flexShrink: 0 }} />
+        <input type="checkbox" required defaultChecked style={{ accentColor: GOLD, marginTop: '2px', flexShrink: 0 }} />
         <span style={{ fontSize: '12px', color: '#777', fontFamily: F_SANS, lineHeight: 1.5 }}>
           I authorize the developer &amp; its representatives to contact me via Email / SMS / WhatsApp / Call.
         </span>

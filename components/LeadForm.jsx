@@ -88,7 +88,7 @@ const LeadForm = ({ formName = 'Hero Form', btnText = 'Submit Details' }) => {
       {error && <p className="text-red-500 text-xs mt-1" style={{ fontFamily: F_SANS }}>{error}</p>}
 
       <div className="flex items-start gap-2 mt-3">
-        <input type="checkbox" id="privacy-lead" required className="mt-0.5 shrink-0" style={{ accentColor: GOLD }} />
+        <input type="checkbox" id="privacy-lead" required defaultChecked className="mt-0.5 shrink-0" style={{ accentColor: GOLD }} />
         <label htmlFor="privacy-lead" className="text-xs text-gray-500 leading-relaxed cursor-pointer" style={{ fontFamily: F_SANS }}>
           I authorize the developer &amp; its representatives to contact me via Email / SMS / WhatsApp / Call. This will override DND / NDNC settings.
         </label>

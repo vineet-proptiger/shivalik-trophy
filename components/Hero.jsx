@@ -22,7 +22,7 @@ const Hero = ({ setIsOpen }) => {
       <div className="flex flex-col lg:flex-row">
 
         {/* LEFT — Image Carousel */}
-        <div className="w-full lg:w-[62%] relative h-[250px] sm:h-[350px] lg:h-auto lg:min-h-[calc(100vh-82px)]"
+        <div className="w-full lg:w-[60%] relative h-[600px] sm:h-[850px] lg:h-auto lg:min-h-[calc(100vh-82px)]"
           data-aos="fade-right">
 
           {/* Carousel — outline draws 10px inside, not clipped by overflow-hidden */}
@@ -38,8 +38,8 @@ const Hero = ({ setIsOpen }) => {
             >
               {slides.map((src, idx) => (
                 <div key={idx} style={{ width: `${100 / slides.length}%`, flexShrink: 0, position: 'relative' }}>
-                  <Image src={src} alt={`Shivalik Trophy ${idx + 1}`} fill className="object-cover"
-                    priority={idx === 0} sizes="(max-width: 1024px) 100vw, 62vw" />
+                  <Image src={src} alt={`Shivalik Trophy ${idx + 1}`} fill className="object-cover object-center"
+                    priority={idx === 0} sizes="(max-width: 1024px) 100vw, 50vw" />
                 </div>
               ))}
             </div>
