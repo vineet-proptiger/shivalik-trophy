@@ -1,6 +1,8 @@
 import './globals.css'
 import { Open_Sans, Montserrat, Cormorant_Garamond } from 'next/font/google'
 import localFont from 'next/font/local'
+import { GoogleTagManager } from '@next/third-parties/google'
+import Script from 'next/script'
 
 const openSans = Open_Sans({
   subsets: ['latin'],
@@ -37,7 +39,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <GoogleTagManager gtmId="GTM-575H8R87" />
       <body className={`${openSans.variable} ${montserrat.variable} ${cormorant.variable} ${nephilm.variable} font-sans text-dark antialiased`}>
+        <Script id="gtag-init" strategy="beforeInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());`}
+        </Script>
         {children}
       </body>
     </html>
