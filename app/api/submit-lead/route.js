@@ -37,7 +37,6 @@ export async function POST(request) {
 
     /* ── Required fields ── */
     let phone = get('phone').replace(/\D/g, '')
-    // Strip country code — keep last 10 digits only
     if (phone.length > 10) phone = phone.slice(-10)
     const email = get('email')
 
@@ -57,17 +56,17 @@ export async function POST(request) {
     const firstName = nameParts[0] || ''
     const lastName = nameParts[1] || firstName
 
-    // /* ── Tracking ── */
-    // const utmSource = get('utm_source') || 'Microsite'
-    // const utmMedium = get('utm_medium') || 'organic'
-    // const utmCampaign = get('utm_campaign')
-    // const utmTerm = get('utm_term')
-    // const utmContent = get('utm_content')
-    // const campaignName = get('campaign_name')
-    // 
-    // const gclid = get('gclid')
-    // const gbraid = get('gbraid')
-    // const wbraid = get('wbraid')
+    /* ── Tracking ── */
+    const utmSource = get('utm_source') || 'Microsite'
+    const utmMedium = get('utm_medium') || 'organic'
+    const utmCampaign = get('utm_campaign')
+    const utmTerm = get('utm_term')
+    const utmContent = get('utm_content')
+    const campaignName = get('campaign_name')
+
+    const gclid = get('gclid')
+    const gbraid = get('gbraid')
+    const wbraid = get('wbraid')
 
     const landingPage = get('SourceURL') || get('landing_page')
     const userIP = getUserIP(request) || get('ip_address')
@@ -88,15 +87,15 @@ export async function POST(request) {
       Mobile: phone,
       Comments: comments,
 
-      // utm_source: utmSource,
-      // utm_medium: utmMedium,
-      // utm_campaign: utmCampaign,
-      // utm_term: utmTerm,
-      // utm_content: utmContent,
-      // 
-      // gclid,
-      // gbraid,
-      // wbraid,
+      utm_source: utmSource,
+      utm_medium: utmMedium,
+      utm_campaign: utmCampaign,
+      utm_term: utmTerm,
+      utm_content: utmContent,
+
+      gclid,
+      gbraid,
+      wbraid,
 
       SourceURL: landingPage,
       landing_page: landingPage,
@@ -109,7 +108,6 @@ export async function POST(request) {
       sheet_name: get('sheet_name'),
     })
 
-    // Fire and forget (don't await — same as PHP)
     fetch(SHEET_WEBHOOK, {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -119,16 +117,14 @@ export async function POST(request) {
       .catch(e => console.error('[Sheet] error:', e.message))
 
     /* ── 2. Proptiger CRM ── */
-    const ptUrl = `${PROPTIGER_URL}?sourceDomain=Microsite`
-    // const ptUrl = `${PROPTIGER_URL}?utm_source=${encodeURIComponent(utmSource)}&utm_medium=${encodeURIComponent(utmMedium)}&utm_campaign=${encodeURIComponent(utmCampaign)}&utm_term=${encodeURIComponent(utmTerm)}&utm_content=${encodeURIComponent(utmContent)}&gclid=${encodeURIComponent(gclid)}&gbraid=${encodeURIComponent(gbraid)}&wbraid=${encodeURIComponent(wbraid)}&campaign_name=${encodeURIComponent(campaignName)}&sourceDomain=Microsite`
+    const ptUrl = `${PROPTIGER_URL}?utm_source=${encodeURIComponent(utmSource)}&utm_medium=${encodeURIComponent(utmMedium)}&utm_campaign=${encodeURIComponent(utmCampaign)}&utm_term=${encodeURIComponent(utmTerm)}&utm_content=${encodeURIComponent(utmContent)}&gclid=${encodeURIComponent(gclid)}&gbraid=${encodeURIComponent(gbraid)}&wbraid=${encodeURIComponent(wbraid)}&campaign_name=${encodeURIComponent(campaignName)}&sourceDomain=Microsite`
 
     const ptPayload = {
       name: `${firstName} ${lastName}`.trim(),
       email,
       phone,
       countryId: '1',
-      // source: utmSource,
-      source: 'Microsite',
+      source: utmSource,
 
       projectId,
       projectName,
@@ -136,16 +132,16 @@ export async function POST(request) {
       cityId: CITY_ID,
       cityName: CITY_SLUG,
 
-      // gaMedium: utmMedium,
-      // campaign: utmCampaign,
-      // addgroup: get('adgroup_name'),
-      // 
-      // utm_term: utmTerm,
-      // utm_content: utmContent,
-      // 
-      // gclid,
-      // gbraid,
-      // wbraid,
+      gaMedium: utmMedium,
+      campaign: utmCampaign,
+      addgroup: get('adgroup_name'),
+
+      utm_term: utmTerm,
+      utm_content: utmContent,
+
+      gclid,
+      gbraid,
+      wbraid,
 
       query: comments || 'Please arrange a callback',
       device: get('device'),
@@ -179,7 +175,7 @@ export async function POST(request) {
 
     return Response.json({
       status: true,
-      crm: ptStatus,   // e.g. 200 = CRM accepted, 400/422 = rejected
+      crm: ptStatus,
     })
 
   } catch (err) {
