@@ -25,11 +25,14 @@ const ContactForm = () => {
     })
   }, [])
 
-  const handle = (e) => setForm({ ...form, [e.target.name]: e.target.value })
+  const handle = (e) => {
+    const { name, value } = e.target
+    setForm({ ...form, [name]: name === 'phone' ? value.replace(/\D/g, '') : value })
+  }
 
   const submit = async (e) => {
     e.preventDefault()
-    if (form.phone.replace(/\D/g, '').length < 10) { setError('Enter valid 10-digit number'); return }
+    if (!/^\d{10}$/.test(form.phone)) { setError('Enter valid 10-digit number'); return }
     setError(''); setLoading(true)
     const tracking = buildTrackingFields(ipAddress, geoAddress)
     const payload = new FormData()

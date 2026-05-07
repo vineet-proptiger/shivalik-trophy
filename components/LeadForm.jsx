@@ -25,11 +25,14 @@ const LeadForm = ({ formName = 'Hero Form', btnText = 'Submit Details' }) => {
     })
   }, [])
 
-  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value })
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setFormData({ ...formData, [name]: name === 'phone' ? value.replace(/\D/g, '') : value })
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    if (!formData.phone || formData.phone.replace(/\D/g, '').length < 10) { setError('Please enter a valid 10-digit mobile number.'); return }
+    if (!/^\d{10}$/.test(formData.phone)) { setError('Please enter a valid 10-digit mobile number.'); return }
     setError(''); setLoading(true)
     const tracking = buildTrackingFields(ipAddress, geoAddress)
     const payload = new FormData()
